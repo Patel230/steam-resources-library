@@ -528,6 +528,22 @@
 
 ## GitHub publication verification
 
-- [ ] Commit the latest implementation pack and repository changes.
-- [ ] Push the commit to Patel230/steam-resources-library.
-- [ ] Verify GitHub Actions and GitHub Pages deployment status.
+- [x] Commit the latest implementation pack and repository changes.
+- [x] Push the commit to Patel230/steam-resources-library.
+- [x] Verify GitHub Actions and GitHub Pages deployment status.
+
+## Manual GitHub Pages enablement script
+
+- [x] Document exact GitHub Settings clicks for Actions-based Pages initialization.
+- [x] Document GitHub CLI and REST API verification commands for Pages initialization and deployment.
+- [x] Generate and validate a presentation script explaining the manual fix for the integration-permission error.
+
+## Automated GitHub Pages audit script
+
+- [x] Create a reusable Bash script for repository, Actions, Pages API, artifact, base-path, SPA fallback, and live-URL checks.
+- [x] Validate the script syntax and document its usage, exit codes, and failure interpretation.
+
+## Audit script publication
+
+- [ ] Commit and push the verified GitHub Pages audit script.
+- [ ] Confirm the remote commit and latest workflow status.
