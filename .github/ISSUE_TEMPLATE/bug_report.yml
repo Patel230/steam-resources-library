@@ -1,0 +1,61 @@
+name: Bug report
+description: Report a reproducible problem in the website, catalog, build, or deployment.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve the STEAM Resources Library. Please search existing issues first and avoid including secrets or private information.
+  - type: input
+    id: summary
+    attributes:
+      label: Summary
+      description: Briefly describe the problem.
+      placeholder: The country filter does not preserve the selected category.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: List the smallest reliable sequence that demonstrates the problem.
+      placeholder: |
+        1. Open ...
+        2. Select ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Include browser, operating system, commit, or deployment URL as relevant.
+      placeholder: Chrome 140 on Ubuntu; main; GitHub Pages
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Add console output, screenshots, or a minimal catalog record example. Remove secrets and personal data.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I searched existing issues.
+          required: true
+        - label: I removed secrets and private information from this report.
+          required: true
