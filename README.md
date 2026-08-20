@@ -65,6 +65,8 @@ Resource additions should be audited locally, deduplicated, classified using the
 
 The next expansion priorities are to increase verified coverage for the top-100 countries, add more first-party GA, EM, and DM archives, and then extend the same provenance-led workflow to Science, Technology, Engineering, and Arts resources.
 
-## License and source attribution
+## Open-source license and source attribution
 
-This repository is an indexing and discovery application. The original resources remain owned by their respective institutions and organizers. Each catalog record should link back to its original source and respect that source’s access and reuse terms.
+This repository is released under the [MIT License](LICENSE). The original resources linked by the catalog remain owned by their respective institutions and organizers. Each catalog record should link back to its original source and respect that source’s access and reuse terms.
+
+The public source repository is [Patel230/steam-resources-library](https://github.com/Patel230/steam-resources-library). Pushes to `main` run the GitHub Pages workflow in `.github/workflows/deploy-pages.yml`. The project site is served at `https://patel230.github.io/steam-resources-library/` after Pages completes its first deployment.

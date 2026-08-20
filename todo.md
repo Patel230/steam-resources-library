@@ -492,3 +492,8 @@
 - [ ] Refresh ranked coverage counts, audit the next batch, integrate qualifying records, and rerun full validation
 - [x] Update the website end to end so catalog data, country coverage, filters, provenance, accessibility, responsive behavior, and performance reflect the latest validated library
 - [x] Run full data, route, test, build, and responsive verification after the website-wide update
+
+## Open-source publication
+
+- [ ] Make the STEAM Resources Library repository open source with an explicit license and updated README guidance
+- [ ] Configure, deploy, and verify the Vite website on GitHub Pages
