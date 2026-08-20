@@ -510,5 +510,24 @@
 - [x] Validate the reusable steam-resources-library-workflow skill.
 - [x] Run catalog index, clean-content, test, type-check, and production-build validation.
 - [x] Verify the public GitHub repository and GitHub Pages deployment status.
-- [ ] Report current top-100 country/category coverage and next expansion priorities.
+- [x] Report current top-100 country/category coverage and next expansion priorities.
 - [x] Make repository validation scripts resolve the checkout root instead of the legacy managed-project path.
+
+## Status deck and deployment guidance
+
+- [x] Document the exact GitHub Pages Settings UI and token permissions needed to resolve the configure-pages integration error.
+- [x] Define a reproducible, policy-safe audit protocol for the official Bangladesh Mathematical Olympiad OneDrive archive.
+- [x] Prepare and generate a status presentation covering repository, catalog metrics, and the GitHub Pages block.
+- [x] Validate and deliver the presentation deck with supporting guidance.
+
+## Deployment and audit implementation pack
+
+- [x] Provide the exact GitHub Pages workflow YAML with required permissions, environment, and build-to-deploy dependency.
+- [x] Provide bounded shell commands for a policy-safe anonymous OneDrive archive audit.
+- [x] Generate and validate a presentation deck based on the YAML and audit procedures.
+
+## GitHub publication verification
+
+- [ ] Commit the latest implementation pack and repository changes.
+- [ ] Push the commit to Patel230/steam-resources-library.
+- [ ] Verify GitHub Actions and GitHub Pages deployment status.
