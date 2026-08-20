@@ -497,6 +497,6 @@
 
 - [ ] Make the STEAM Resources Library repository open source with an explicit license and updated README guidance
 - [ ] Configure, deploy, and verify the Vite website on GitHub Pages
-- [ ] Add CONTRIBUTING.md with setup, catalog-quality, testing, pull-request, and attribution guidance
-- [ ] Add or refine GitHub Actions automation for pull-request testing and deployment validation
-- [ ] Run local checks, verify workflow configuration, commit, and push the open-source automation update
+- [x] Add CONTRIBUTING.md with setup, catalog-quality, testing, pull-request, and attribution guidance
+- [x] Add or refine GitHub Actions automation for pull-request testing and deployment validation
+- [x] Run local checks, verify workflow configuration, commit, and push the open-source automation update
