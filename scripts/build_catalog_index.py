@@ -8,7 +8,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 
-ROOT = Path("/home/ubuntu/ga-em-dm-resource-hub")
+ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "client/src/data"
 OUTPUT = ROOT / "client/src/data/catalogIndex.ts"
 

@@ -7,7 +7,7 @@ from collections import Counter
 from pathlib import Path
 
 
-ROOT = Path("/home/ubuntu/ga-em-dm-resource-hub")
+ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "client/src/data"
 ROSTER = ROOT / "research/top100_country_roster.csv"
 OUTPUT = ROOT / "research/top100_coverage_baseline.csv"

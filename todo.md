@@ -495,8 +495,20 @@
 
 ## Open-source publication
 
-- [ ] Make the STEAM Resources Library repository open source with an explicit license and updated README guidance
+- [x] Make the STEAM Resources Library repository open source with an explicit license and updated README guidance
 - [ ] Configure, deploy, and verify the Vite website on GitHub Pages
 - [x] Add CONTRIBUTING.md with setup, catalog-quality, testing, pull-request, and attribution guidance
 - [x] Add or refine GitHub Actions automation for pull-request testing and deployment validation
 - [x] Run local checks, verify workflow configuration, commit, and push the open-source automation update
+- [x] Package the STEAM Resources Library research, validation, and open-source publishing workflow as a reusable Manus skill
+- [ ] Verify GitHub Pages workflow status and live site URL
+- [x] Add CODE_OF_CONDUCT.md, SECURITY.md, GitHub issue templates, and pull-request template under the MIT-licensed repository
+
+## Inherited-session continuation
+
+- [x] Validate repository issue and pull-request contribution templates.
+- [x] Validate the reusable steam-resources-library-workflow skill.
+- [x] Run catalog index, clean-content, test, type-check, and production-build validation.
+- [x] Verify the public GitHub repository and GitHub Pages deployment status.
+- [ ] Report current top-100 country/category coverage and next expansion priorities.
+- [x] Make repository validation scripts resolve the checkout root instead of the legacy managed-project path.

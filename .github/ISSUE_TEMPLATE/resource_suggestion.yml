@@ -1,0 +1,96 @@
+name: Resource suggestion
+description: Suggest a publicly accessible, first-party STEAM learning resource for review.
+title: "[Resource]: "
+labels:
+  - resource-review
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Suggested resources are reviewed against the project’s provenance and clean-content policy. Do not suggest mirrors, login-gated files, paywalled material, or documents containing private data.
+  - type: input
+    id: url
+    attributes:
+      label: Direct resource URL
+      description: Provide the direct public URL to the question paper, quiz, assignment, solution, or substantive learning resource.
+    validations:
+      required: true
+  - type: input
+    id: institution
+    attributes:
+      label: First-party institution or organizer
+      description: Identify the university, ministry, olympiad organizer, examination body, or other original publisher.
+    validations:
+      required: true
+  - type: dropdown
+    id: country
+    attributes:
+      label: Country
+      options:
+        - Afghanistan
+        - Australia
+        - Bangladesh
+        - Brazil
+        - Canada
+        - China
+        - Egypt
+        - France
+        - Germany
+        - India
+        - Indonesia
+        - Japan
+        - Kenya
+        - Malaysia
+        - Mexico
+        - Nepal
+        - Nigeria
+        - Pakistan
+        - Philippines
+        - Singapore
+        - South Africa
+        - South Korea
+        - Sri Lanka
+        - Thailand
+        - United Kingdom
+        - United States
+        - Vietnam
+        - Zimbabwe
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: discipline
+    attributes:
+      label: Discipline
+      options:
+        - General Aptitude
+        - Engineering Mathematics
+        - Discrete Mathematics
+        - Science
+        - Technology
+        - Engineering
+        - Arts
+    validations:
+      required: true
+  - type: checkboxes
+    id: eligibility
+    attributes:
+      label: Eligibility checklist
+      options:
+        - label: The source is first-party or clearly organizer-owned.
+          required: true
+        - label: The resource is publicly accessible without login or payment.
+          required: true
+        - label: The substantive content is available in English.
+          required: true
+        - label: The file contains actual questions, problems, solutions, or substantive learning material.
+          required: true
+        - label: I checked that the URL is not already in the catalog.
+          required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Verification notes
+      description: Explain the resource type, year, language evidence, and why it is useful.
+    validations:
+      required: true
