@@ -14,8 +14,8 @@ export const catalogCountryIndex: Record<string, CountryCatalogStat> = {
     "caveatCount": 0
   },
   "France": {
-    "catalogCount": 7,
-    "freeCount": 7,
+    "catalogCount": 86,
+    "freeCount": 86,
     "caveatCount": 3
   },
   "Australia": {
@@ -188,7 +188,8 @@ export const lazyChunksByCountry: Record<string, string[]> = {
     "four_country_depth_resources.csv"
   ],
   "France": [
-    "active_country_depth_resources.csv"
+    "active_country_depth_resources.csv",
+    "france_ccinp_verified_resources.csv"
   ],
   "India": [
     "india_gate_verified_resources.csv",
@@ -301,13 +302,13 @@ export const lazyChunksByCountry: Record<string, string[]> = {
 };
 
 export const catalogIndexTotals = {
-  "catalogCount": 1477,
-  "freeCount": 1477,
-  "sourceCount": 148,
+  "catalogCount": 1556,
+  "freeCount": 1556,
+  "sourceCount": 149,
   "gatewayCount": 0,
   "trackCounts": {
     "GA": 658,
-    "EM": 596,
-    "DM": 664
+    "EM": 651,
+    "DM": 688
   }
 } as const;

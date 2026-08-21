@@ -8,7 +8,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]  # repo root (packages/scripts/ -> root)
 DATA = ROOT / "apps/web/src/data"
 OUTPUT = ROOT / "apps/web/src/data/catalogIndex.ts"
 

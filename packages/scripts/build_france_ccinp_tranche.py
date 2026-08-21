@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import csv
+import datetime as dt
 import re
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
@@ -11,10 +12,11 @@ import requests
 from bs4 import BeautifulSoup
 
 
-ROOT = Path("/home/ubuntu/ga-em-dm-resource-hub")
+ROOT = Path(__file__).resolve().parents[2]  # repo root (packages/scripts/ -> root)
 DATA = ROOT / "apps/web/src/data"
 OUTPUT = DATA / "france_ccinp_verified_resources.csv"
 AUDIT = ROOT / "research/france_ccinp_url_audit.csv"
+VERIFIED_AT = dt.date.today().isoformat()
 TARGET_ADDITIONS = 79
 ARCHIVES = {
     "MP": "https://www.concours-commun-inp.fr/fr/epreuves/annales/annales-mp.html",
@@ -143,7 +145,7 @@ def main() -> None:
                 "language": "French source; English catalog metadata",
                 "notes": "Official CCINP past examination paper. The catalog title and description are supplied in English; the original French PDF URL is preserved.",
                 "access_model": "Free public PDF",
-                "verification_status": "HTTP 200 · verified 2026-08-14",
+                "verification_status": f"HTTP 200 · verified {VERIFIED_AT}",
                 "free_resource": "Yes",
             })
     with AUDIT.open("w", newline="", encoding="utf-8") as handle:
