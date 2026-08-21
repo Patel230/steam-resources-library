@@ -5,7 +5,7 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "dev": "NODE_ENV=development tsx watch apps/api/_core/index.ts",
+    "dev": "pnpm --filter @steam-hub/api dev",
     "build": "pnpm --filter @steam-hub/web build && pnpm --filter @steam-hub/api build",
     "start": "NODE_ENV=production node apps/api/dist/index.js",
     "check": "tsc --noEmit",
@@ -19,7 +19,6 @@
     "drizzle-orm": "^0.44.5",
     "mysql2": "^3.15.0",
     "prettier": "^3.6.2",
-    "tsx": "^4.19.1",
     "typescript": "5.9.3",
     "vite": "^7.1.7",
     "vitest": "^2.1.4"
