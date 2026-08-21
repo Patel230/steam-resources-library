@@ -29,8 +29,8 @@ export const catalogCountryIndex: Record<string, CountryCatalogStat> = {
     "caveatCount": 0
   },
   "Japan": {
-    "catalogCount": 6,
-    "freeCount": 6,
+    "catalogCount": 100,
+    "freeCount": 100,
     "caveatCount": 0
   },
   "Sweden": {
@@ -44,8 +44,8 @@ export const catalogCountryIndex: Record<string, CountryCatalogStat> = {
     "caveatCount": 0
   },
   "United Kingdom": {
-    "catalogCount": 5,
-    "freeCount": 5,
+    "catalogCount": 148,
+    "freeCount": 148,
     "caveatCount": 0
   },
   "Global": {
@@ -54,8 +54,8 @@ export const catalogCountryIndex: Record<string, CountryCatalogStat> = {
     "caveatCount": 1
   },
   "Germany": {
-    "catalogCount": 5,
-    "freeCount": 5,
+    "catalogCount": 102,
+    "freeCount": 102,
     "caveatCount": 0
   },
   "Republic of Korea": {
@@ -191,6 +191,9 @@ export const lazyChunksByCountry: Record<string, string[]> = {
     "active_country_depth_resources.csv",
     "france_ccinp_verified_resources.csv"
   ],
+  "Germany": [
+    "germany_bwinf_verified_resources.csv"
+  ],
   "India": [
     "india_gate_verified_resources.csv",
     "india_tifr_verified_resources.csv"
@@ -203,6 +206,7 @@ export const lazyChunksByCountry: Record<string, string[]> = {
   ],
   "Japan": [
     "archive_depth_resources.csv",
+    "japan_joi_verified_resources.csv",
     "japan_mext_verified_resources.csv"
   ],
   "Kenya": [
@@ -291,6 +295,9 @@ export const lazyChunksByCountry: Record<string, string[]> = {
   "Uganda": [
     "uganda_uneb_verified_resources.csv"
   ],
+  "United Kingdom": [
+    "united_kingdom_bmo_verified_resources.csv"
+  ],
   "United States": [
     "active_country_depth_resources.csv",
     "united_states_usaco_2026_verified_resources.csv",
@@ -302,13 +309,13 @@ export const lazyChunksByCountry: Record<string, string[]> = {
 };
 
 export const catalogIndexTotals = {
-  "catalogCount": 1556,
-  "freeCount": 1556,
-  "sourceCount": 149,
-  "gatewayCount": 0,
+  "catalogCount": 1890,
+  "freeCount": 1890,
+  "sourceCount": 157,
+  "gatewayCount": 7,
   "trackCounts": {
-    "GA": 658,
-    "EM": 651,
-    "DM": 688
+    "GA": 759,
+    "EM": 872,
+    "DM": 921
   }
 } as const;
