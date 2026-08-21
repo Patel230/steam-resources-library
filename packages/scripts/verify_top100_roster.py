@@ -9,7 +9,7 @@ from pathlib import Path
 from urllib.request import urlopen
 
 
-ROOT = Path("/home/ubuntu/ga-em-dm-resource-hub")
+ROOT = Path(__file__).resolve().parents[2]
 ROSTER = ROOT / "research/top100_country_roster.csv"
 REPORT = ROOT / "research/top100_roster_methodology.md"
 INDICATOR = "SP.POP.TOTL"

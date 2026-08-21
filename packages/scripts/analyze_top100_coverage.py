@@ -7,7 +7,7 @@ from collections import Counter
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "apps/web/src/data"
 ROSTER = ROOT / "research/top100_country_roster.csv"
 OUTPUT = ROOT / "research/top100_coverage_baseline.csv"

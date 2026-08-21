@@ -14,7 +14,7 @@ from pathlib import Path
 from urllib.request import urlopen
 
 
-ROOT = Path("/home/ubuntu/ga-em-dm-resource-hub")
+ROOT = Path(__file__).resolve().parents[2]
 MEMBERS_PATH = ROOT / "apps/web/src/data/memberStates.ts"
 OUTPUT_CSV = ROOT / "research/top100_country_roster.csv"
 OUTPUT_MD = ROOT / "research/top100_country_roster.md"
