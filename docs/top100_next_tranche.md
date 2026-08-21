@@ -9,6 +9,11 @@ target. Derived from `research/top100_coverage_baseline.csv` +
 - **Grow (19):** have rows, need more verified free records.
 - **Unstarted (71):** zero rows — full tranche builds required.
 
+Candidate flagship universities and open-courseware platforms per country are
+collected in `research/university_open_course_leads.md` (unverified leads; each
+must pass the standard provenance, free-access, English-facing, and
+substantive-content gates before promotion).
+
 ## Done (7)
 India (101) · Nigeria (403) · South Africa (146) · Canada (123) · United States (110) · Australia (100) · Malaysia (101)
 
