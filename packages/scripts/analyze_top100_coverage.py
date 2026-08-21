@@ -23,25 +23,32 @@ def main() -> None:
         target = [row["country"] for row in csv.DictReader(handle)]
     target_set = set(target)
 
-    counts = Counter()
-    classified_free = Counter()
-    seen_urls: set[str] = set()
-
+    # Deduplicate by URL, preferring the copy with a free_resource value so the
+    # authoritative verified chunk (free_resource=yes) wins over legacy aggregate
+    # copies (e.g. final_resources.csv) that predate the column and leave it blank.
+    best: dict[str, dict] = {}
     for path in sorted(DATA.glob("*.csv")):
         with path.open(newline="", encoding="utf-8") as handle:
             for row in csv.DictReader(handle):
                 url = (row.get("resource_url") or "").strip()
-                if url:
-                    if url in seen_urls:
-                        continue
-                    seen_urls.add(url)
-                countries = [part.strip() for part in row.get("country", "").split("/")]
-                for country in countries:
-                    if country not in target_set:
-                        continue
-                    counts[country] += 1
-                    if row.get("free_resource", "").strip().lower() == "yes":
-                        classified_free[country] += 1
+                if not url:
+                    continue
+                current = best.get(url)
+                current_free = (current.get("free_resource") or "").strip() if current else ""
+                incoming_free = (row.get("free_resource") or "").strip()
+                if current is None or (incoming_free and not current_free):
+                    best[url] = row
+
+    counts = Counter()
+    classified_free = Counter()
+    for row in best.values():
+        countries = [part.strip() for part in row.get("country", "").split("/")]
+        for country in countries:
+            if country not in target_set:
+                continue
+            counts[country] += 1
+            if row.get("free_resource", "").strip().lower() == "yes":
+                classified_free[country] += 1
 
     with OUTPUT.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.writer(handle)
