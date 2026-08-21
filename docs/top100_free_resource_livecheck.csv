@@ -1,0 +1,338 @@
+country,resource_url,http_status,content_type,live_bucket,source_type
+Germany,https://bwinf.de/olympiade/vergangene-olympiaden/,200,text/html; charset=utf-8,200_html,contest archive
+Germany,https://bwinf.de/jugendwettbewerb/aufgaben/,200,text/html; charset=utf-8,200_html,contest archive
+Germany,https://bwinf.de/olympiade/aufgaben/,200,text/html; charset=utf-8,200_html,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/41/1_runde/Bundeswettbewerb_41_Aufgabenblatt_WEB.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/40/1_runde/Bundeswettbewerb-Aufgabenblatt.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/39/1_runde/Bundeswettbewerb-Aufgabenblatt.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/38/1_runde/BwInf38-Aufgabenblatt.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/37/1_runde/BWINF_37_Aufgaben_WEB.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/36/1_runde/BWINF_36_Aufgaben_WEB.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/35/1_runde/BWINF_35_Aufgaben_WEB.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/34/1_runde/34_Aufgaben.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/33/1_runde/Aufgabenblatt331_Aufgaben.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/32/1_runde/Aufgabenblatt321_Aufgaben.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/31/1_runde/Aufgabenblatt311_Aufgaben.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/34/aufgaben343.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/43/1_runde/Aufgaben431.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/42/1_runde/BwInf_42_Aufgaben_WEB.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/44/1_Runde/Aufgaben441.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/40/1_runde/Bundeswettbewerb40-Mantel.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/39/1_runde/Bundeswettbewerb39-Mantel.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/38/1_runde/BwInf38-Mantel.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/37/1_runde/BWINF_37_Mantel_2018_WEB.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/36/1_runde/BwInf_36_Mantel_WEB.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/35/1_runde/BWINF_35_Mantel_WEB.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/34/1_runde/34_Mantel.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/33/1_runde/Aufgabenblatt331_Mantel.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/32/1_runde/Aufgabenblatt321_Mantel.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/31/1_runde/Aufgabenblatt311_Mantel.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/30/1_runde/Aufgabenblatt301.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/43/2_runde/Aufgaben432.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/42/2_runde/aufgaben422.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/41/2_runde/aufgaben412.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/40/2_runde/aufgaben402.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/39/2_runde/aufgaben392.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/38/2_runde/aufgaben382.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/37/2_runde/aufgaben372.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/36/2_runde/aufgaben362.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/35/2_runde/aufgaben352.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/34/2_runde/aufgaben342.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/33/2_runde/aufgaben332.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/32/2_runde/aufgaben322.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/31/2_runde/aufgaben312.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/30/2_runde/aufgaben302.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/44/2_Runde/Aufgaben442.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/34/1_runde/34_Beispielloesung.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/19/Beispielloesung_19.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/35/1_runde/BWINF_35_Beispielloesung_WEB.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/22/Beispielloesung_22.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/23/Beispielloesung_23.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/31/1_runde/Beispiell%C3%B6sung_31.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/36/1_runde/BwInf_36_Beispielloesung_WEB.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/21/Beispielloesung_21.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/32/1_runde/Aufgabenblatt321_Beispielloesung.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/33/1_runde/Aufgabenblatt331_Beispielloesung.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/24/Beispielloesung_24.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/biber/bibertests/,200,text/html; charset=utf-8,200_html,contest archive
+Germany,https://bwinf.de/girls/egoi/,200,text/html; charset=utf-8,200_html,contest archive
+Germany,https://bwinf.de/olympiade/,200,text/html; charset=utf-8,200_html,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/42/1_runde/Loesungshinweise421.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/41/1_runde/Loesungshinweise411.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/40/1_runde/loesungshinweise401.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/39/1_runde/loesungshinweise391.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/38/1_runde/loesungshinweise381.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/37/1_runde/loesungshinweise371.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/36/1_runde/loesungshinweise361_2217_.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/35/1_runde/loesungshinweise351.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/34/1_runde/loesungshinweise341.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/33/1_runde/loesungshinweise331.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/32/1_runde/loesungshinweise321.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/31/1_runde/loesungshinweise311_01.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/30/1_runde/loesungshinweise301_01.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/42/2_runde/Loesungshinweise422.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/41/2_runde/loesungshinweise412.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/40/2_runde/loesungshinweise402.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/39/2_runde/loesungshinweis392.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/38/2_runde/loesungshinweise382.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/37/2_runde/loesungshinweise372.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/36/2_runde/loesungshinweise362.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/35/2_runde/loesungshinweise_352.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/34/2_runde/loesungshinweise342_01.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/33/2_runde/loesungshinweise332_01.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/32/2_runde/loesungshinweise322.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/31/2_runde/loesungshinweise312_01.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/30/2_runde/loesungshinweise_302.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/43/2_runde/Loesungshinweise432.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/olympiade/2026/,200,text/html; charset=utf-8,200_html,contest archive
+Germany,https://bwinf.de/olympiade/teilnehmen/,200,text/html; charset=utf-8,200_html,contest archive
+Germany,https://bwinf.de/bundeswettbewerb/aufgaben/#c2902,200,text/html; charset=utf-8,200_html,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/35/1_runde/aufgabenblatt351_simple.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/34/1_runde/aufgabenblatt341_simple.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/33/1_runde/aufgabenblatt331_simple.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/32/1_runde/Aufgabenblatt321_Einfach.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/31/1_runde/Aufgabenblatt311_simple.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/30/1_runde/Aufgabenblatt301_simple.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://bwinf.de/bundeswettbewerb/aufgaben/#c2899,200,text/html; charset=utf-8,200_html,contest archive
+Germany,https://bwinf.de/fileadmin/wettbewerbe/bundeswettbewerb/29/Beispielloesung_29.pdf,200,application/pdf,200_pdf,contest archive
+Germany,https://www.testas.de/fileadmin/bilder/4_pdf-video/1-teilnehmende/testas_modellaufgaben_englisch_2017_kl.pdf,200,application/pdf,200_pdf,admissions practice
+Japan,https://www2.ioi-jp.org/camp/2025/2025-sp-tasks/index.html,200,text/html,200_html,contest archive
+Japan,https://contests.ioi-jp.org/joi-sp-2025/index-en.html,200,text/html; charset=utf-8,200_html,contest archive
+Japan,https://contests.ioi-jp.org/joi-sp-2025/ranking.html,200,text/html; charset=utf-8,200_html,contest archive
+Japan,https://www.ioi-jp.org/joi/2024/2025-sp_camp-rules,200,text/html; charset=utf-8,200_html,contest archive
+Japan,https://www.ioi-jp.org/joig/2024/2025-sp_camp-rules,200,text/html; charset=utf-8,200_html,contest archive
+Japan,https://contests.ioi-jp.org/,200,text/html; charset=utf-8,200_html,contest archive
+Japan,https://contests.ioi-jp.org/joi-sp-2025/index.html,200,text/html; charset=utf-8,200_html,contest archive
+Japan,https://www.imojp.org/archive/imo2003/contents/imo.html,200,text/html; charset=utf-8,200_html,contest archive
+Japan,https://www.imojp.org/archive/imo2003/contents/imoj.html,200,text/html; charset=utf-8,200_html,contest archive
+Japan,https://www.imojp.org/archive/imo2003/contents/mof.html#jmo,200,text/html; charset=utf-8,200_html,contest archive
+Japan,https://www.imojp.org/archive/imo2003/contents/mof.html,200,text/html; charset=utf-8,200_html,contest archive
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/pastpaper_sample/pastpaper_2010_1.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/pastpaper_sample/pastpaper_2011_1.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/pastpaper_sample/pastpaper_2011_2.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/pastpaper_sample/pastpaper_2012_1.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/pastpaper_sample/pastpaper_2012_2.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/pastpaper_sample/pastpaper_2013_1.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/pastpaper_sample/pastpaper_2013_2.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/pastpaper_sample/pastpaper_2014_1.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/pastpaper_sample/pastpaper_2014_2.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/pastpaper_sample/pastpaper_2015_1.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/pastpaper_sample/pastpaper_2015_2.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/pastpaper_sample/pastpaper_2016_1.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/pastpaper_sample/pastpaper_2016_2.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/pastpaper_sample/pastpaper_2017_1.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/pastpaper_sample/pastpaper_2017_2.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/pastpaper_sample/pastpaper_2018_1.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/pastpaper_sample/pastpaper_2018_2.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/pastpaper_sample/pastpaper_2019_1.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/pastpaper_sample/pastpaper_2020_2.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/pastpaper_sample/pastpaper_2021_1.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/certificate/index.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/prearrival/required_score.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/procedure/ans_method.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/procedure/caution.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/procedure/application.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/bulletin.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/contact/index.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/contact/asia.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/publish.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/syllabus/index.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/syllabus/science_bio.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/syllabus/science_chem.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/syllabus/japan_theworld.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/syllabus/japanese.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/syllabus/mathematics.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/syllabus/science_phy.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/ejuonline/application/index.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/faq_eju/caution.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/procedure/examination_fee.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/procedure/language.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/schedule.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/procedure/subject.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/procedure/examination_time.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/faq_eju/voucher_overseas.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/faq_eju/voucher_japan.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/index.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/procedure/disability.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/index.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/procedure/index.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/pastpaper_sample/index.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/ryugaku/eju/examinee/pastpaper_sample/index.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/use/kosen.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/use/graduate.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/use/junior_college.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/use/uni_national.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/use/online.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/use/pro_training.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/use/uni_proandvoc.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/prearrival/uni_national.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/use/other.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/use/index.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/procedure/exam_voucher_soufu.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/about/about_a/foundation.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/about/revision/rev_basic.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/about/data/applicants_examinees.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/prearrival/number.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/use/use_number.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/reissue/abroad.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/reissue/index.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/faq_eju/jlpt.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/pastpaper_sample/__icsFiles/afieldfile/2023/06/27/answersheet_sample_en_3.pdf,200,application/pdf,200_pdf,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/prearrival/index.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/procedure/score_report_soufu.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/voice/index.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/voice/student_voice_tang_pei_he.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/voice/student_voice_zorigbayar_tamir.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/voice/student_voice_enkhbold_m.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/voice/student_voice_han_eojin.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/voice/student_voice_t_n_p_linh.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/examinee/voice/student_voice_tu_weixiao.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/faq_eju/examinee.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/about/data/examinees.html,200,text/html; charset=utf-8,200_html,admissions exam
+Japan,https://www.jasso.go.jp/en/ryugaku/eju/faq_eju/about.html,200,text/html; charset=utf-8,200_html,admissions exam
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2005.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2007.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2018.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-2005.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/fist-1989.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo-1983.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/fist-1979.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2003.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-1993.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/fist-1977.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/fist-1983.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2000.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/fist-1978.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo-1989.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-1992.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-1993.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-1999.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo-1980.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo-1984.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/fist-1982.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-1998.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo-1979.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/fist-1986.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/fist-1981.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-1996.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-1992.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-1997.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/fist-1985.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2024.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-1995.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo-1991.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2023.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo-1990.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-1996.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2001.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo-1977.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/fist-1972.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-1995.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo-1982.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-1994.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo-1981.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2026.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo-1973.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo-1974.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/fist-1974.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2011.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2012.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2017.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2022.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo-1987.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo-1988.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2025.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-2026.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo-1978.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-2025.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-2000.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/fist-1984.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-1994.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-2004.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-2019.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-2024.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo-1975.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo-1976.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-1999.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-2003.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-2018.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-2023.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-1998.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-2002.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-2012.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-2017.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2021.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-1997.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-2001.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-2011.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-2022.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2016.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/fist-1991.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-2010.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-2016.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-2021.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2015.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-2009.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-2015.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2014.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2020.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2004.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2010.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-2007.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-2014.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-2020.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2006.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2008.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2013.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2019.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-2006.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-2008.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-2013.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2009.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo-1986.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2002.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/fist-1988.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo-1985.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/fist-1975.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/fist-1976.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/fist-1990.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/fist-1980.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://ukmt.org.uk/senior-challenges/british-maths-olympiad-round-1,403,,403_blocked,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/,200,text/html,200_html,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo.shtml,200,text/html,200_html,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmolot.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://ukmt.org.uk/textbooks/a-mathematical-olympiad-companion,403,,403_blocked,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2005-histogram.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2020-report.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2021-report.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2022-report.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2023-report.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2024-report.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2025-report.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2026-report.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmomarking.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://ukmt.org.uk/textbooks/2-a-mathematical-olympiad-primer-2nd-edition,403,,403_blocked,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2017-report.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo1-2018-report.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-2021-solutions.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/home/bmo2-2022-solutions.pdf,200,application/pdf,200_pdf,contest archive
+United Kingdom,https://bmos.ukmt.org.uk/solutions/,200,text/html,200_html,contest archive
+United Kingdom,https://www.maths.cam.ac.uk/undergrad/admissions/step,200,text/html; charset=utf-8,200_html,admissions exam
+United Kingdom,https://www.maths.cam.ac.uk/internal/teaching,200,text/html; charset=utf-8,200_html,admissions exam
+United Kingdom,https://www.ucat.ac.uk/candidate-advice/advice-from-past-candidates/,200,text/html; charset=utf-8,200_html,admissions practice
+United Kingdom,https://www.ucat.ac.uk/register/booking-your-test/,200,text/html; charset=utf-8,200_html,admissions practice
+United Kingdom,https://www.ucat.ac.uk/sit/fitness-to-test/,200,text/html; charset=utf-8,200_html,admissions practice
+United Kingdom,https://www.ucat.ac.uk/prepare/question-tutorials/,200,text/html; charset=utf-8,200_html,admissions practice
+United Kingdom,https://www.ucat.ac.uk/sit/test-day/,200,text/html; charset=utf-8,200_html,admissions practice
+United Kingdom,https://www.ucat.ac.uk/about-ucat/test-format-and-scoring/,200,text/html; charset=utf-8,200_html,admissions practice
+United Kingdom,https://www.ucat.ac.uk/sit/test-incident/,200,text/html; charset=utf-8,200_html,admissions practice
+United Kingdom,https://www.ucat.ac.uk/prepare/test-tools/,200,text/html; charset=utf-8,200_html,admissions practice
+United Kingdom,https://www.ucat.ac.uk/umbraco/surface/pearsonpracticetest/launch/UK_Tour_Tutorial,200,text/html;charset=utf-8,200_html,admissions practice
+United Kingdom,https://www.ucat.ac.uk/about-ucat/ucat-test-dates/,200,text/html; charset=utf-8,200_html,admissions practice
+United Kingdom,https://esat-tmua.ac.uk/,200,text/html; charset=utf-8,200_html,admissions practice
+United Kingdom,https://esat-tmua.ac.uk/about-the-tests/esat-test/,200,text/html; charset=utf-8,200_html,admissions practice
+United Kingdom,https://esat-tmua.ac.uk/about-the-tests/tara/,200,text/html; charset=utf-8,200_html,admissions practice
+United Kingdom,https://esat-tmua.ac.uk/about-the-tests/tmua-test/,200,text/html; charset=utf-8,200_html,admissions practice
+United Kingdom,https://esat-tmua.ac.uk/tmua-preparation-materials/,200,text/html; charset=utf-8,200_html,admissions practice
+United Kingdom,https://esat-tmua.ac.uk/test-day/,200,text/html; charset=utf-8,200_html,admissions practice
+United Kingdom,https://esat-tmua.ac.uk/test-results/,200,text/html; charset=utf-8,200_html,admissions practice
