@@ -20,7 +20,7 @@ describe("Sri Lanka OUSL Engineering Mathematics catalog chunk", () => {
     const ouslRecords = catalog.filter((row) => row.country === "Sri Lanka" && row.track === "EM");
     expect(ouslRecords).toHaveLength(2);
     expect(ouslRecords.every((row) => row.language === "English")).toBe(true);
-    expect(ouslRecords.every((row) => row.free_resource.toLowerCase() === "yes")).toBe(true);
+    expect(ouslRecords.every((row) => row.free_resource?.toLowerCase() === "yes")).toBe(true);
     expect(ouslRecords.every((row) => row.priority === "A")).toBe(true);
   });
 });
@@ -47,7 +47,7 @@ describe("Philippines NOI.PH 2020 Finals Gym catalog chunk", () => {
 
     expect(archives).toHaveLength(2);
     expect(archives.map((row) => row.language)).toEqual(["English", "English"]);
-    expect(archives.every((row) => row.resource_class.includes("contest problem archive") && row.free_resource.toLowerCase() === "yes")).toBe(true);
+    expect(archives.every((row) => row.resource_class.includes("contest problem archive") && row.free_resource?.toLowerCase() === "yes")).toBe(true);
   });
 });
 
@@ -153,6 +153,6 @@ describe("Thailand Mahidol MUIC mathematics sample catalog chunk", () => {
     expect(samples[0]?.language).toBe("English");
     expect(samples[0]?.track).toBe("EM");
     expect(samples[0]?.resource_class).toBe("question");
-    expect(samples[0]?.free_resource.toLowerCase()).toBe("yes");
+    expect(samples[0]?.free_resource?.toLowerCase()).toBe("yes");
   });
 });

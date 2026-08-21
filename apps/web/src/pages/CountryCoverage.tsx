@@ -28,6 +28,7 @@ const statusCopy: Record<CoverageStatus, { label: string; short: string }> = {
 };
 
 const prettyCount = (value: number) => new Intl.NumberFormat("en-US").format(value);
+const isNearTarget = (entry: { freeCount: number }) => entry.freeCount > 0 && entry.freeCount < 100;
 
 export default function CountryCoverage() {
   const [query, setQuery] = useState("");
@@ -42,13 +43,13 @@ export default function CountryCoverage() {
     active: coverageIndex.filter((entry) => entry.status === "active").length,
     caveat: coverageIndex.filter((entry) => entry.status === "caveat").length,
     pending: coverageIndex.filter((entry) => entry.status === "pending").length,
-    near: coverageIndex.filter((entry) => entry.freeCount > 0 && entry.freeCount < 100).length,
+    near: coverageIndex.filter((entry) => isNearTarget(entry)).length,
   }), []);
 
   const activeOrder = progress === "near" && order === "ledger" ? "closest" : order;
   const activeOrderCopy = progressOrders.find((option) => option.value === activeOrder)?.resultCopy ?? "canonical 193-state ledger order";
   const nearestTargetFive = useMemo(() => coverageIndex
-    .filter((entry) => entry.freeCount > 0 && entry.freeCount < 100)
+    .filter((entry) => isNearTarget(entry))
     .sort((left, right) => right.freeCount - left.freeCount || left.state.localeCompare(right.state))
     .slice(0, 5), []);
 
@@ -56,7 +57,7 @@ export default function CountryCoverage() {
     const normalizedQuery = query.trim().toLowerCase();
     const matchingEntries = coverageIndex.filter((entry) => {
       const matchesStatus = status === "all" || entry.status === status;
-      const matchesProgress = progress === "all" || (entry.freeCount > 0 && entry.freeCount < 100);
+      const matchesProgress = progress === "all" || isNearTarget(entry);
       const matchesQuery = !normalizedQuery || entry.state.toLowerCase().includes(normalizedQuery);
       return matchesStatus && matchesProgress && matchesQuery;
     });
@@ -65,8 +66,8 @@ export default function CountryCoverage() {
       if (activeOrder === "progress") return right.freeCount - left.freeCount || left.state.localeCompare(right.state);
       if (activeOrder === "gap") return (100 - Math.min(left.freeCount, 100)) - (100 - Math.min(right.freeCount, 100)) || left.state.localeCompare(right.state);
       if (activeOrder === "closest") {
-        const leftBelowTarget = left.freeCount > 0 && left.freeCount < 100;
-        const rightBelowTarget = right.freeCount > 0 && right.freeCount < 100;
+        const leftBelowTarget = isNearTarget(left);
+        const rightBelowTarget = isNearTarget(right);
         if (leftBelowTarget !== rightBelowTarget) return leftBelowTarget ? -1 : 1;
         return right.freeCount - left.freeCount || left.state.localeCompare(right.state);
       }
@@ -181,9 +182,9 @@ export default function CountryCoverage() {
           <div className="coverage-directory__toolbar">
             <div className="coverage-directory__search"><Search size={16} /><Input aria-label="Search member states" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search a member state" />{query && <button aria-label="Clear country search" onClick={() => setQuery("")}><X size={14} /></button>}</div>
             <div className="coverage-directory__filters" aria-label="Filter country status">
-              {(["all", "active", "caveat", "pending"] as StatusFilter[]).map((value) => <button key={value} className={status === value ? "is-active" : ""} onClick={() => setStatus(value)}>{value === "all" ? "All states" : statusCopy[value].label}</button>)}
+              {(["all", "active", "caveat", "pending"] as StatusFilter[]).map((value) => <button key={value} type="button" aria-pressed={status === value} className={status === value ? "is-active" : ""} onClick={() => setStatus(value)}>{value === "all" ? "All states" : statusCopy[value].label}</button>)}
             </div>
-            <div className="coverage-directory__progress-filter" aria-label="Filter progress toward the 100-resource target"><span>100-resource route</span><button className={progress === "near" ? "is-active" : ""} onClick={() => { const next = progress === "near" ? "all" : "near"; setProgress(next); if (next === "near" && order === "ledger") setOrder("closest"); }}>Nearest below 100 <b>{counts.near}</b></button></div>
+            <div className="coverage-directory__progress-filter" aria-label="Filter progress toward the 100-resource target"><span>100-resource route</span><button type="button" aria-pressed={progress === "near"} className={progress === "near" ? "is-active" : ""} onClick={() => { const next = progress === "near" ? "all" : "near"; setProgress(next); if (next === "near" && order === "ledger") setOrder("closest"); }}>Nearest below 100 <b>{counts.near}</b></button></div>
             <label className="coverage-directory__sort"><span>Rank by</span><select value={order} onChange={(event) => setOrder(event.target.value as ProgressOrder)} aria-label="Sort countries by target progress">{progressOrders.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}</select></label>
             {(query || status !== "all" || progress !== "all" || order !== "ledger") && <button className="coverage-directory__reset" onClick={clearDirectoryFilters}>Reset <X size={13} /></button>}
           </div>

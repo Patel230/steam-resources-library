@@ -15,7 +15,8 @@ export function ResourceCard({ row, onInspect, index }: ResourceCardProps) {
   const tracks = rowTracks(row);
   const primaryTrack = tracks[0] ?? "GA";
   const meta = trackDefinitions[primaryTrack];
-  const isGateway = row.resource_class === "Official gateway";
+  const kind = resourceKind(row);
+  const isGateway = kind === "Official gateway";
   const isFree = isFreeResource(row);
   const hasCaveat = hasAccessCaveat(row);
 
@@ -33,7 +34,7 @@ export function ResourceCard({ row, onInspect, index }: ResourceCardProps) {
           {isFree && <span className="free-pill"><BadgeCheck size={13} /> Free access</span>}
           {hasCaveat && <span className="caveat-pill" title={verificationLabel(row)}><TriangleAlert size={13} /> Access caveat</span>}
         </div>
-        <span className="resource-card__kind"><small>Material</small>{resourceKind(row)}</span>
+        <span className="resource-card__kind"><small>Material</small>{kind}</span>
       </div>
 
       <div className="resource-card__body">

@@ -72,7 +72,7 @@ export function buildCoverageIndex(): CoverageEntry[] {
 export const coverageIndex = buildCoverageIndex();
 
 export function buildRegionCoverage(): RegionCoverageEntry[] {
-  const entries = buildCoverageIndex();
+  const entries = coverageIndex;
   return REGION_ORDER.map((region) => {
     const regionEntries = entries.filter((entry) => regionForState(entry.state) === region);
     return {

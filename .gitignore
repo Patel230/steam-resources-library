@@ -111,6 +111,10 @@ temp/
 # Webdev artifacts (checkpoint zips, migrations, etc.)
 .webdev/
 
+# wget download logs accidentally committed at the repo root
+wget-log
+wget-log.*
+
 # Manus version file (auto-generated, not part of source)
 apps/web/public/__manus__/version.json
 .project-config.json
