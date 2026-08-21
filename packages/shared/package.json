@@ -1,0 +1,15 @@
+{
+  "name": "@steam-hub/shared",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./const": "./const.ts",
+    "./types": "./types.ts",
+    "./_core/errors": "./_core/errors.ts",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "check": "tsc --noEmit"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "@steam-hub/scripts",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Python data-pipeline and research scripts for the Signal Atlas catalog",
+  "scripts": {}
+}

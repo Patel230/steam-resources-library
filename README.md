@@ -23,16 +23,19 @@ Every live catalog record is expected to satisfy the project’s source-quality 
 
 ## Project structure
 
+This repository is a pnpm-workspace monorepo. Follow the `apps/` / `packages/` boundary: `apps/` hold independently built applications, `packages/` hold shared libraries and tooling.
+
 | Path | Purpose |
 |---|---|
-| `client/` | React and TypeScript frontend |
-| `client/src/data/` | Verified country resource CSV chunks and generated catalog index |
-| `client/src/lib/` | Catalog loading, filtering, and shared utilities |
-| `client/src/pages/` | Explorer and country-coverage routes |
-| `client/src/components/` | Reusable interface components |
-| `server/` | Server procedures and regression tests |
-| `scripts/` | Catalog indexing, audit, and validation scripts |
-| `research/` | Local research evidence and audit notes; excluded from deployment checkpoints when configured |
+| `apps/web/` | React + TypeScript Vite frontend (the GitHub Pages deployable) |
+| `apps/web/src/data/` | Verified country resource CSV chunks and generated catalog index |
+| `apps/web/src/lib/` | Catalog loading, filtering, and shared utilities |
+| `apps/web/src/pages/` | Explorer and country-coverage routes |
+| `apps/web/src/components/` | Reusable interface components |
+| `apps/api/` | Express + tRPC backend, server procedures, and regression tests |
+| `packages/shared/` | Shared constants, types, and errors consumed by both apps |
+| `packages/scripts/` | Catalog indexing, audit, and validation scripts |
+| `research/` | Local research evidence and audit notes |
 | `drizzle/` | Database schema and migrations |
 
 ## Local development
@@ -43,7 +46,7 @@ Install dependencies with:
 pnpm install
 ```
 
-Run the development server with:
+Run the development server (API serves the web app via Vite middleware) with:
 
 ```bash
 pnpm run dev
@@ -53,7 +56,7 @@ Run the validation suite with:
 
 ```bash
 pnpm test
-pnpm exec tsc --noEmit
+pnpm run check
 pnpm run build
 ```
 

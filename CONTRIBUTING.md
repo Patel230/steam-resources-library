@@ -31,7 +31,7 @@ The build command validates both the Vite frontend and the server bundle. Do not
 
 ## Adding catalog resources
 
-Catalog data is stored in verified CSV chunks under `client/src/data/`. Preserve the established 15-column schema and use one row per direct resource URL. Use the existing chunks as field-value examples rather than inventing new taxonomy labels. After adding a chunk, regenerate the lazy catalog index using the repository’s index builder and confirm that the physical CSV is registered in the runtime loader.
+Catalog data is stored in verified CSV chunks under `apps/web/src/data/`. Preserve the established 15-column schema and use one row per direct resource URL. Use the existing chunks as field-value examples rather than inventing new taxonomy labels. After adding a chunk, regenerate the lazy catalog index using the repository’s index builder and confirm that the physical CSV is registered in the runtime loader.
 
 Every proposed record should have local evidence for public access, file integrity, English-visible content, substantive questions or solutions, provenance, and deduplication. Keep the evidence in the local research workspace; bulky research artifacts are intentionally excluded from deployment commits. Never fabricate records, ratings, reviews, testimonials, or source-quality claims.
 

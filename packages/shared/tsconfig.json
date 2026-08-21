@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "lib": ["esnext", "dom"],
+    "types": ["node"],
+    "tsBuildInfoFile": "../../node_modules/.cache/tsbuildinfo-shared"
+  },
+  "include": ["./**/*"],
+  "exclude": ["node_modules"]
+}

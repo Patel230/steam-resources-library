@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "types": ["vite/client"],
+    "paths": {
+      "@/*": ["./src/*"],
+      "@shared/*": ["../../packages/shared/*"]
+    },
+    "tsBuildInfoFile": "../../node_modules/.cache/tsbuildinfo-web"
+  },
+  "include": ["./src/**/*", "./vite.config.ts"],
+  "exclude": ["node_modules", "dist"]
+}

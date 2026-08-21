@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "types": ["node"],
+    "paths": {
+      "@shared/*": ["../../packages/shared/*"]
+    },
+    "lib": ["esnext"],
+    "tsBuildInfoFile": "../../node_modules/.cache/tsbuildinfo-api"
+  },
+  "include": ["./**/*"],
+  "exclude": ["node_modules", "dist"]
+}

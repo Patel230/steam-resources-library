@@ -36,12 +36,12 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build static website
-        run: pnpm run build
+        run: pnpm --filter @steam-hub/web build
         env:
           GITHUB_PAGES: true
 
       - name: Prepare SPA fallback
-        run: cp dist/public/index.html dist/public/404.html
+        run: cp apps/web/dist/public/index.html apps/web/dist/public/404.html
 
       - name: Configure Pages
         uses: actions/configure-pages@v6
@@ -51,7 +51,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
-          path: dist/public
+          path: apps/web/dist/public
 
   deploy:
     environment:
