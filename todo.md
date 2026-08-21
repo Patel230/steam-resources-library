@@ -545,5 +545,16 @@
 
 ## Audit script publication
 
-- [ ] Commit and push the verified GitHub Pages audit script.
-- [ ] Confirm the remote commit and latest workflow status.
+- [x] Commit and push the verified GitHub Pages audit script.
+- [x] Confirm the remote commit and latest workflow status.
+
+## Manual Pages initialization attempt
+
+- [ ] Open GitHub repository Pages settings and initialize the Actions source if authorized.
+- [ ] Rerun the Pages workflow and verify the API and live URL.
+
+## Full repository publication
+
+- [ ] Inspect all remaining tracked and untracked repository changes.
+- [ ] Commit and push all intended repository files.
+- [ ] Verify that local and remote main branches match.
