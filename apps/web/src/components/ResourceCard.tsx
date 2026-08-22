@@ -1,5 +1,5 @@
-/* Signal Atlas reminder: cards should feel like annotated index cards, with provenance before decoration. */
-/* Signal Atlas card language: mineral-paper surfaces, coordinate markers, and visible provenance before decoration. */
+/* STEAM Foundry reminder: cards should feel like annotated index cards, with provenance before decoration. */
+/* STEAM Foundry card language: mineral-paper surfaces, coordinate markers, and visible provenance before decoration. */
 import { ArrowUpRight, BadgeCheck, BookOpen, Globe2, Languages, Sparkles, TriangleAlert } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";

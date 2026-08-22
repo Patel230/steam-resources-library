@@ -1,0 +1,18 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="STEAM Foundry mark">
+  <defs>
+    <linearGradient id="sf-bg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7c9cff"/>
+      <stop offset="1" stop-color="#fcd34d"/>
+    </linearGradient>
+  </defs>
+  <!-- rounded square tile -->
+  <rect x="4" y="4" width="56" height="56" rx="14" fill="#0b1120"/>
+  <rect x="4" y="4" width="56" height="56" rx="14" stroke="url(#sf-bg)" stroke-width="2.5"/>
+  <!-- foundry crucible / pour -->
+  <path d="M20 42 L26 26 L38 26 L44 42 Z" fill="none" stroke="#fcd34d" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M26 32 L38 32" stroke="#7c9cff" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- molten stream (STEAM tracks) -->
+  <circle cx="32" cy="47" r="3.2" fill="#fb7185"/>
+  <circle cx="40" cy="49" r="2.4" fill="#5eead4"/>
+  <circle cx="24" cy="49" r="2.4" fill="#7c9cff"/>
+</svg>

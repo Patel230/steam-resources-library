@@ -1,4 +1,4 @@
-/* Signal Atlas coverage directory: normalized English display names for the UN’s 193 member states. */
+/* STEAM Foundry coverage directory: normalized English display names for the UN’s 193 member states. */
 
 export const UN_MEMBER_STATES = [
   "Afghanistan",

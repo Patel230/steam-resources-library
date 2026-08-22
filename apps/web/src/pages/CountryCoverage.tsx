@@ -1,5 +1,5 @@
-/* Signal Atlas coverage directory: an atlas ledger for every UN member state, with pending scope kept visible. */
-/* Signal Atlas country ledger: map-like scanning, quiet mineral surfaces, and clear saffron progress cues make research gaps legible without overstating coverage. */
+/* STEAM Foundry coverage directory: an atlas ledger for every UN member state, with pending scope kept visible. */
+/* STEAM Foundry country ledger: map-like scanning, quiet mineral surfaces, and clear saffron progress cues make research gaps legible without overstating coverage. */
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, ArrowUpRight, Check, Compass, MapPinned, Search, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -94,9 +94,9 @@ export default function CountryCoverage() {
     <div className="coverage-page">
       <AtlasLegend active="states" />
       <header className="coverage-page__header">
-        <a className="brand-lockup" href="/" aria-label="Signal Atlas home">
-          <img src="/manus-storage/signal-atlas-mark_db2cb221.png" alt="" className="brand-mark" />
-          <span><strong>Signal</strong> Atlas</span>
+        <a className="brand-lockup" href="/" aria-label="STEAM Foundry home">
+          <img src="/steam-foundry-mark.svg" alt="" className="brand-mark" />
+          <span><strong>STEAM</strong> Foundry</span>
         </a>
         <nav className="coverage-page__nav" aria-label="Coverage navigation">
           <a href="/">Explore archive</a>
@@ -201,7 +201,7 @@ export default function CountryCoverage() {
         </section>
       </main>
 
-      <footer className="coverage-page__footer"><a className="brand-lockup" href="/"><img src="/manus-storage/signal-atlas-mark_db2cb221.png" alt="" className="brand-mark" /><span><strong>Signal</strong> Atlas</span></a><span>Country coverage is a live research ledger, not a completeness claim.</span><a href="/">Return to explore <ArrowRight size={14} /></a></footer>
+      <footer className="coverage-page__footer"><a className="brand-lockup" href="/"><img src="/steam-foundry-mark.svg" alt="" className="brand-mark" /><span><strong>STEAM</strong> Foundry</span></a><span>Country coverage is a live research ledger, not a completeness claim.</span><a href="/">Return to explore <ArrowRight size={14} /></a></footer>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-/* Signal Atlas coverage model: one canonical member-state index, live counts, and honest pending states. */
+/* STEAM Foundry coverage model: one canonical member-state index, live counts, and honest pending states. */
 import { MemberState, UN_MEMBER_STATES } from "@/data/memberStates";
 import { REGION_ORDER, Region, regionForState } from "@/data/regions";
 import { catalogCountryIndex } from "@/data/catalogIndex";

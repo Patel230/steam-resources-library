@@ -1,4 +1,4 @@
-/* Signal Atlas reminder: the shell should keep orientation visible across every route. */
+/* STEAM Foundry reminder: the shell should keep orientation visible across every route. */
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";

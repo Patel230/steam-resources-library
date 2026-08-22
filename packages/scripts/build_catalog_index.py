@@ -155,7 +155,7 @@ def main() -> None:
         source_titles.add(row.get("source_title", ""))
         gateway_count += row.get("resource_class", "") == "Official gateway"
         for track in row.get("track", "").replace(",", " ").replace("/", " ").split():
-            if track in {"GA", "EM", "DM"}:
+            if track in {"GA", "EM", "DM", "CS", "S", "T", "E", "A"}:
                 track_counts[track] += 1
         for country in countries_by_url[url]:
             stat = countries.setdefault(country, {"catalogCount": 0, "freeCount": 0, "caveatCount": 0})
@@ -175,7 +175,7 @@ def main() -> None:
         "freeCount": sum(1 for row in rows_by_url.values() if row.get("free_resource", "").strip().lower() == "yes"),
         "sourceCount": len(source_titles - {""}),
         "gatewayCount": gateway_count,
-        "trackCounts": {track: track_counts[track] for track in ("GA", "EM", "DM")},
+        "trackCounts": {track: track_counts[track] for track in ("GA", "EM", "DM", "CS", "S", "T", "E", "A")},
     }, indent=2) + " as const;\n"
     OUTPUT.write_text(payload, encoding="utf-8")
     print(f"Wrote {OUTPUT} for {len(rows_by_url)} unique resource URLs across {len(countries)} catalog labels.")

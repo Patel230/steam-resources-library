@@ -1,4 +1,4 @@
-/* Signal Atlas legend: a persistent cartographic frame with numbered routes, subject markers, and one decisive saffron active state. */
+/* STEAM Foundry legend: a persistent cartographic frame with numbered routes, subject markers, and one decisive saffron active state. */
 import { Compass, MapPinned, Route } from "lucide-react";
 
 type AtlasLegendProps = {
@@ -15,8 +15,8 @@ export function AtlasLegend({ active }: AtlasLegendProps) {
   const activeRoute = legendRoutes.find((route) => route.id === active);
 
   return (
-    <aside className="atlas-legend" aria-label="Signal Atlas navigation legend">
-      <div className="atlas-legend__cap"><Compass size={16} aria-hidden="true" /><span>Signal Atlas</span><b>SA / 193</b></div>
+    <aside className="atlas-legend" aria-label="STEAM Foundry navigation legend">
+      <div className="atlas-legend__cap"><Compass size={16} aria-hidden="true" /><span>STEAM Foundry</span><b>SF / 193</b></div>
       <div className="atlas-legend__north"><i aria-hidden="true" /><span>N / 014</span><small>W 073 · E 118</small></div>
       <p className="atlas-legend__location"><span>Current coordinate</span><strong>{activeRoute?.number} / {activeRoute?.label}</strong></p>
       <nav className="atlas-legend__routes" aria-label="Atlas routes">

@@ -1,5 +1,5 @@
-/* Signal Atlas reminder: keep the catalog provenance-first, dense but breathable, and easy to orient. */
-/* Signal Atlas catalog layer: keep initial discovery lightweight and defer dense country archives without altering source provenance or route semantics. */
+/* STEAM Foundry reminder: keep the catalog provenance-first, dense but breathable, and easy to orient. */
+/* STEAM Foundry catalog layer: keep initial discovery lightweight and defer dense country archives without altering source provenance or route semantics. */
 import { catalogCountryIndex, lazyChunksByCountry } from "@/data/catalogIndex";
 
 export type CatalogRow = {
@@ -236,11 +236,41 @@ export const trackDefinitions = {
     color: "coral",
     image: "/manus-storage/dm-signal-illustration_d73d2edb.jpg",
   },
+  CS: {
+    label: "Computer Science",
+    short: "Algorithms, data structures, programming, and computational thinking.",
+    color: "indigo",
+    image: "/manus-storage/dm-signal-illustration_d73d2edb.jpg",
+  },
+  S: {
+    label: "Science",
+    short: "Physics, chemistry, biology, and scientific reasoning.",
+    color: "sky",
+    image: "/manus-storage/em-signal-illustration_df924d6c.jpg",
+  },
+  T: {
+    label: "Technology",
+    short: "Practical computing, tooling, and applied digital skills.",
+    color: "slate",
+    image: "/manus-storage/em-signal-illustration_df924d6c.jpg",
+  },
+  E: {
+    label: "Engineering",
+    short: "Design, systems, and applied problem-solving practice.",
+    color: "olive",
+    image: "/manus-storage/em-signal-illustration_df924d6c.jpg",
+  },
+  A: {
+    label: "Arts",
+    short: "Creative, spatial, and design-oriented thinking.",
+    color: "rose",
+    image: "/manus-storage/ga-signal-illustration_2ca1945f.jpg",
+  },
 } as const;
 
 export type TrackKey = keyof typeof trackDefinitions;
 
-export const trackKeys: TrackKey[] = ["GA", "EM", "DM"];
+export const trackKeys: TrackKey[] = ["GA", "EM", "DM", "CS", "S", "T", "E", "A"];
 
 export function rowTracks(row: CatalogRow): TrackKey[] {
   return trackKeys.filter((track) => row.track.split(/[\/, ]+/).includes(track));

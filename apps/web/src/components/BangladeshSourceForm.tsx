@@ -1,4 +1,4 @@
-/* Signal Atlas source desk: capture public-access leads for independent, non-automatic review. */
+/* STEAM Foundry source desk: capture public-access leads for independent, non-automatic review. */
 import { useId, useState } from "react";
 import { Check, ClipboardCheck, Link2, Loader2 } from "lucide-react";
 import { toast } from "sonner";
