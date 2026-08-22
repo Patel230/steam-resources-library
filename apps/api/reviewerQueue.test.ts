@@ -12,7 +12,6 @@ function contextFor(role: "admin" | "user"): TrpcContext {
       email: "reviewer@example.com",
       loginMethod: "manus",
       role,
-      tokenVersion: 0,
       createdAt: new Date(),
       updatedAt: new Date(),
       lastSignedIn: new Date(),

@@ -8,13 +8,6 @@
       "when": 1786757456343,
       "tag": "0000_third_nehzno",
       "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "5",
-      "when": 1787402120807,
-      "tag": "0001_add_user_token_version",
-      "breakpoints": true
     }
   ]
 }

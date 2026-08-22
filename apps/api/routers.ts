@@ -12,16 +12,7 @@ export const appRouter = router({
   system: systemRouter,
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),
-    logout: publicProcedure.mutation(async ({ ctx }) => {
-      // Invalidate every token previously issued for this user. Best-effort:
-      // the cookie is always cleared even when the database is unreachable.
-      if (ctx.user && !ctx.user.isCron) {
-        try {
-          await db.bumpUserTokenVersion(ctx.user.openId);
-        } catch (error) {
-          console.error("[Auth] Failed to revoke sessions on logout:", error);
-        }
-      }
+    logout: publicProcedure.mutation(({ ctx }) => {
       const cookieOptions = getSessionCookieOptions(ctx.req);
       ctx.res.clearCookie(COOKIE_NAME, { ...cookieOptions, maxAge: -1 });
       return {

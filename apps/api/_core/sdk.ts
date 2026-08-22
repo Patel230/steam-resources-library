@@ -22,7 +22,6 @@ export type SessionPayload = {
   openId: string;
   appId: string;
   name: string;
-  tokenVersion?: number;
 };
 
 /** Sessions are refreshed at most once per hour to avoid a DB write per request. */
@@ -169,14 +168,13 @@ class SDKServer {
    */
   async createSessionToken(
     openId: string,
-    options: { expiresInMs?: number; name?: string; tokenVersion?: number } = {}
+    options: { expiresInMs?: number; name?: string } = {}
   ): Promise<string> {
     return this.signSession(
       {
         openId,
         appId: ENV.appId,
         name: options.name || "",
-        tokenVersion: options.tokenVersion ?? 0,
       },
       options
     );
@@ -195,7 +193,6 @@ class SDKServer {
       openId: payload.openId,
       appId: payload.appId,
       name: payload.name,
-      tokenVersion: payload.tokenVersion ?? 0,
     })
       .setProtectedHeader({ alg: "HS256", typ: "JWT" })
       .setExpirationTime(expirationSeconds)
@@ -204,7 +201,7 @@ class SDKServer {
 
   async verifySession(
     cookieValue: string | undefined | null
-  ): Promise<{ openId: string; appId: string; name: string; tokenVersion: number } | null> {
+  ): Promise<{ openId: string; appId: string; name: string } | null> {
     if (!cookieValue) {
       console.warn("[Auth] Missing session cookie");
       return null;
@@ -215,7 +212,7 @@ class SDKServer {
       const { payload } = await jwtVerify(cookieValue, secretKey, {
         algorithms: ["HS256"],
       });
-      const { openId, appId, name, tokenVersion } = payload as Record<string, unknown>;
+      const { openId, appId, name } = payload as Record<string, unknown>;
 
       if (
         !isNonEmptyString(openId) ||
@@ -237,7 +234,6 @@ class SDKServer {
         openId,
         appId,
         name,
-        tokenVersion: typeof tokenVersion === "number" && Number.isInteger(tokenVersion) ? tokenVersion : 0,
       };
     } catch (error) {
       console.warn("[Auth] Session verification failed", String(error));
@@ -323,12 +319,6 @@ class SDKServer {
 
     if (!user) {
       throw ForbiddenError("User not found");
-    }
-
-    // Logout bumps the stored tokenVersion; older JWTs are rejected even
-    // though their signature is still valid.
-    if ((session.tokenVersion ?? 0) !== user.tokenVersion) {
-      throw ForbiddenError("Session revoked");
     }
 
     // Throttled: avoid a DB write on every request (reads included).

@@ -1,4 +1,4 @@
-import { and, desc, eq, inArray, sql } from "drizzle-orm";
+import { and, desc, eq, inArray } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
 import { InsertUser, reviewerQueue, users } from "../../drizzle/schema";
 import { ENV } from './_core/env';
@@ -87,15 +87,6 @@ export async function getUserByOpenId(openId: string) {
   const result = await db.select().from(users).where(eq(users.openId, openId)).limit(1);
 
   return result.length > 0 ? result[0] : undefined;
-}
-
-/** Invalidates all previously issued session JWTs for the user. */
-export async function bumpUserTokenVersion(openId: string): Promise<void> {
-  const db = requireDatabase(await getDb());
-  await db
-    .update(users)
-    .set({ tokenVersion: sql`${users.tokenVersion} + 1` })
-    .where(eq(users.openId, openId));
 }
 
 function requireDatabase<T>(database: T | null): T {
