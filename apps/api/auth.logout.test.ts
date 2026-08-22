@@ -1,7 +1,14 @@
-import { describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
+import type { TrpcContext } from "./_core/context";
+
+const authDb = vi.hoisted(() => ({
+  bumpUserTokenVersion: vi.fn(),
+}));
+
+vi.mock("./db", () => authDb);
+
 import { appRouter } from "./routers";
 import { COOKIE_NAME } from "@shared/const";
-import type { TrpcContext } from "./_core/context";
 
 type CookieCall = {
   name: string;
@@ -20,6 +27,7 @@ function createAuthContext(): { ctx: TrpcContext; clearedCookies: CookieCall[] }
     name: "Sample User",
     loginMethod: "manus",
     role: "user",
+    tokenVersion: 0,
     createdAt: new Date(),
     updatedAt: new Date(),
     lastSignedIn: new Date(),
@@ -42,6 +50,11 @@ function createAuthContext(): { ctx: TrpcContext; clearedCookies: CookieCall[] }
 }
 
 describe("auth.logout", () => {
+  beforeEach(() => {
+    authDb.bumpUserTokenVersion.mockReset();
+    authDb.bumpUserTokenVersion.mockResolvedValue(undefined);
+  });
+
   it("clears the session cookie and reports success", async () => {
     const { ctx, clearedCookies } = createAuthContext();
     const caller = appRouter.createCaller(ctx);
@@ -49,12 +62,13 @@ describe("auth.logout", () => {
     const result = await caller.auth.logout();
 
     expect(result).toEqual({ success: true });
+    expect(authDb.bumpUserTokenVersion).toHaveBeenCalledWith("sample-user");
     expect(clearedCookies).toHaveLength(1);
     expect(clearedCookies[0]?.name).toBe(COOKIE_NAME);
     expect(clearedCookies[0]?.options).toMatchObject({
       maxAge: -1,
       secure: true,
-      sameSite: "none",
+      sameSite: "lax",
       httpOnly: true,
       path: "/",
     });

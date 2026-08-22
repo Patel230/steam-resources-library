@@ -1,7 +1,7 @@
 /* STEAM Foundry reminder: make a large archive feel calm, directional, and trustworthy. */
 /* STEAM Foundry explorer: an editorial field guide with asymmetric routes, quiet mineral surfaces, and provenance-led microcopy. */
 /* STEAM Foundry explorer: retain the mineral-paper field-guide layout, editorial hierarchy, and visible provenance cues while data arrives progressively. */
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useDeferredValue, useMemo, useRef, useState } from "react";
 import { useAuth } from "@/_core/hooks/useAuth";
 import {
   ArrowDownUp,
@@ -30,7 +30,9 @@ import { ResourceCard } from "@/components/ResourceCard";
 import { AtlasLegend } from "@/components/AtlasLegend";
 import { BangladeshSourceForm } from "@/components/BangladeshSourceForm";
 import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
-import { CatalogRow, TrackKey, accessLabel, catalogCountries, displayNotes, displaySourceTitle, displayTitle, hasAccessCaveat, initialCatalog, isFreeResource, lastVerifiedDate, lazyCatalogChunkNames, lazyChunksForCountries, loadCatalogChunks, resourceKind, resourceType, resourceTypeOptions, rowTracks, sourceQuality, sourceQualityOptions, trackDefinitions, trackKeys, verifiedWithinDays, verificationLabel } from "@/lib/catalog";
+import { CatalogRow, TrackKey, accessLabel, catalogCountries, displayNotes, displaySourceTitle, displayTitle, hasAccessCaveat, initialCatalog, isFreeResource, lastVerifiedDate, lazyCatalogChunkNames, lazyChunksForCountries, loadCatalogChunks, resourceKind, resourceType, resourceTypeOptions, rowTracks, safeExternalUrl, sourceQuality, sourceQualityOptions, trackDefinitions, trackKeys, verifiedWithinDays, verificationLabel } from "@/lib/catalog";
+import { coreChunkNames } from "@/data/catalogIndex";
+import { Link } from "wouter";
 import { coverageIndex } from "@/lib/coverage";
 import { REGION_BY_STATE, REGION_ORDER, Region } from "@/data/regions";
 import { catalogIndexTotals } from "@/data/catalogIndex";
@@ -62,7 +64,7 @@ function regionForCatalogCountry(country: string): Region | null {
   if (country in REGION_BY_STATE) return REGION_BY_STATE[country as keyof typeof REGION_BY_STATE];
   if (catalogRegionAliases[country]) return catalogRegionAliases[country];
   const regions = new Set(country.split("/").map((part) => REGION_BY_STATE[part.trim() as keyof typeof REGION_BY_STATE]).filter(Boolean));
-  return regions.size === 1 ? Array.from(regions)[0] : null;
+  return regions.size === 1 ? (Array.from(regions)[0] ?? null) : null;
 }
 
 function filtersFromSearch(search: string): FilterState {
@@ -93,6 +95,7 @@ const featuredGateways = [
 
 const prettyCount = (value: number) => new Intl.NumberFormat("en-US").format(value);
 const PAGE_SIZE = 48;
+const PRINT_TABLE_ROW_CAP = 300;
 
 function csvValue(value: string) {
   return `"${String(value ?? "").replace(/"/g, '""')}"`;
@@ -116,7 +119,7 @@ function pageItems(currentPage: number, totalPages: number): Array<number | "ell
   if (totalPages <= 7) return Array.from({ length: totalPages }, (_, index) => index + 1);
   const candidates = Array.from(new Set([1, totalPages, currentPage - 1, currentPage, currentPage + 1])).filter((value) => value > 0 && value <= totalPages).sort((a, b) => a - b);
   return candidates.reduce<Array<number | "ellipsis">>((items, value, index) => {
-    if (index > 0 && value - candidates[index - 1] > 1) items.push("ellipsis");
+    if (index > 0 && value - candidates[index - 1]! > 1) items.push("ellipsis");
     items.push(value);
     return items;
   }, []);
@@ -133,6 +136,8 @@ export default function Home() {
   const [sortBy, setSortBy] = useState<"relevance" | "country" | "title">("relevance");
   const [loadedCatalog, setLoadedCatalog] = useState<CatalogRow[]>(initialCatalog);
   const [isCatalogLoading, setIsCatalogLoading] = useState(true);
+  const [catalogError, setCatalogError] = useState<string | null>(null);
+  const [reloadToken, setReloadToken] = useState(0);
 
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
@@ -150,6 +155,43 @@ export default function Home() {
     return () => document.body.classList.remove("dialog-open");
   }, [selectedRow]);
 
+  // Minimal keyboard accessibility for the resource dialog: initial focus,
+  // a Tab trap, and focus restore on close.
+  const dialogRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    if (!selectedRow) return;
+    const dialog = dialogRef.current;
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    const focusableSelector = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+    const focusables = () => Array.from(dialog?.querySelectorAll<HTMLElement>(focusableSelector) ?? []);
+
+    // Move focus into the dialog.
+    const raf = requestAnimationFrame(() => {
+      (focusables()[0] ?? dialog)?.focus();
+    });
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Tab") return;
+      const items = focusables();
+      if (!items.length) return;
+      const first = items[0]!;
+      const last = items[items.length - 1]!;
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      cancelAnimationFrame(raf);
+      document.removeEventListener("keydown", handleKeyDown);
+      previouslyFocused?.focus();
+    };
+  }, [selectedRow]);
+
   const countries = catalogCountries;
   const kinds = ["Assignments & study", "Official gateway", "Papers & problems", "Practice & quizzes", "Solutions & answers"];
   const requestedChunks = useMemo(() => {
@@ -162,21 +204,38 @@ export default function Home() {
   useEffect(() => {
     let cancelled = false;
     setIsCatalogLoading(true);
-    loadCatalogChunks(requestedChunks)
-      .then((rows) => {
-        if (!cancelled) setLoadedCatalog(rows);
-      })
+    setCatalogError(null);
+    const coreSet = new Set<string>(coreChunkNames);
+    const core = requestedChunks.filter((name) => coreSet.has(name));
+    const run = async () => {
+      // Paint the lightweight core first so the page is useful immediately,
+      // then absorb the dense country archives off the critical path.
+      if (core.length) {
+        const coreRows = await loadCatalogChunks(core);
+        if (!cancelled) setLoadedCatalog(coreRows);
+      }
+      await new Promise((resolve) => setTimeout(resolve, 0));
+      const rows = await loadCatalogChunks(requestedChunks);
+      if (!cancelled) setLoadedCatalog(rows);
+    };
+    run()
       .catch(() => {
-        if (!cancelled) setLoadedCatalog(initialCatalog);
+        if (!cancelled) {
+          setLoadedCatalog(initialCatalog);
+          setCatalogError("The archive could not be loaded. Check your connection and try again.");
+        }
       })
       .finally(() => {
         if (!cancelled) setIsCatalogLoading(false);
       });
     return () => { cancelled = true; };
-  }, [requestedChunkKey]);
+  }, [requestedChunkKey, reloadToken]);
+
+  // Defer the search term so keystrokes stay responsive while the dense catalog re-filters.
+  const deferredQuery = useDeferredValue(filters.query);
 
   const filteredRows = useMemo(() => {
-    const normalizedQuery = filters.query.trim().toLowerCase();
+    const normalizedQuery = deferredQuery.trim().toLowerCase();
     const result = loadedCatalog.filter((row) => {
       const matchesTrack = filters.track === "All" || rowTracks(row).includes(filters.track);
       const matchesCountry = filters.country === "All countries" || row.country === filters.country;
@@ -194,7 +253,7 @@ export default function Home() {
       if (sortBy === "title") return a.resource_title.localeCompare(b.resource_title);
       return Number(b.priority === "A") - Number(a.priority === "A") || a.resource_title.localeCompare(b.resource_title);
     });
-  }, [filters, loadedCatalog, sortBy]);
+  }, [deferredQuery, filters, loadedCatalog, sortBy]);
 
   const trackCounts = catalogIndexTotals.trackCounts;
 
@@ -278,9 +337,9 @@ export default function Home() {
           <nav id="site-navigation" className={`header-nav ${isMobileNavOpen ? "header-nav--open" : ""}`} aria-label="Main navigation">
           <a href="#explore" onClick={() => setIsMobileNavOpen(false)}>Explore</a>
           <a href="#subjects" onClick={() => setIsMobileNavOpen(false)}>Subjects</a>
-          <a href="/coverage" onClick={() => setIsMobileNavOpen(false)}>Country directory</a>
+          <Link href="/coverage" onClick={() => setIsMobileNavOpen(false)}>Country directory</Link>
           <a href="#about" onClick={() => setIsMobileNavOpen(false)}>About the archive</a>
-          {user?.role === "admin" && <a href="/review" onClick={() => setIsMobileNavOpen(false)}>Review queue</a>}
+          {user?.role === "admin" && <Link href="/review" onClick={() => setIsMobileNavOpen(false)}>Review queue</Link>}
         </nav>
         <div className="header-actions">
           <span className="live-status"><span /> {isCatalogLoading ? "Loading archive" : "Archive ready"} · {prettyCount(catalogIndexTotals.catalogCount)} records</span>
@@ -351,7 +410,7 @@ export default function Home() {
           <div className="coverage-panel" aria-label="Free-resource country coverage status">
             <div className="coverage-panel__intro"><div><p className="eyebrow eyebrow--muted">Coverage ledger</p><h3>{coverageStats.freeMemberStates} of 193 member states have free-tranche records.</h3><p>STEAM Foundry keeps pending countries visible instead of filling gaps with invented entries.</p></div><span className="coverage-panel__percent">{coverageStats.progress}%</span></div>
             <div className="coverage-meter" aria-hidden="true"><span style={{ width: `${coverageStats.progress}%` }} /></div>
-            <div className="coverage-panel__stats"><span><strong>{coverageStats.freeRows}</strong> free records</span><span><strong>{coverageStats.baseMemberStates}</strong> base catalog labels</span><span><strong>{coverageStats.pendingMemberStates}</strong> states pending expansion</span><span className="coverage-panel__caveat"><strong>{coverageStats.caveatCount}</strong> access caveats</span><a className="coverage-panel__link" href="/coverage">Open the 193-state directory <ArrowUpRight size={14} /></a></div>
+            <div className="coverage-panel__stats"><span><strong>{coverageStats.freeRows}</strong> free records</span><span><strong>{coverageStats.baseMemberStates}</strong> base catalog labels</span><span><strong>{coverageStats.pendingMemberStates}</strong> states pending expansion</span><span className="coverage-panel__caveat"><strong>{coverageStats.caveatCount}</strong> access caveats</span><Link className="coverage-panel__link" href="/coverage">Open the 193-state directory <ArrowUpRight size={14} /></Link></div>
           </div>
           {filters.country !== "All countries" && <BangladeshSourceForm country={filters.country} />}
           <div className="explorer-toolbar-mobile"><Button variant="outline" className="filter-toggle" aria-expanded={isFilterOpen} aria-controls="filter-rail" onClick={() => setIsFilterOpen((open) => !open)}><SlidersHorizontal size={17} /> Filters {activeFilterCount > 0 && <span className="filter-count">{activeFilterCount}</span>}</Button><span>{prettyCount(filteredRows.length)} results</span></div>
@@ -374,14 +433,15 @@ export default function Home() {
 
             <div className="results-pane">
               <div className="results-header"><div><p className="results-count"><span className="results-orientation"><span className="coordinate-marker" /> {filters.track === "All" ? "All subjects" : filters.track} / {filters.country !== "All countries" ? filters.country : filters.region !== "All regions" ? filters.region : "Global index"}</span><strong aria-live="polite">{prettyCount(filteredRows.length)}</strong> matching records</p><div className="results-subject-legend" aria-label="Persistent subject route legend"><span>Routes</span>{trackKeys.map((track) => <button key={track} type="button" aria-pressed={filters.track === track} className={`results-subject-legend__route results-subject-legend__route--${track.toLowerCase()} ${filters.track === track ? "is-active" : ""}`} onClick={() => updateFilter("track", filters.track === track ? "All" : track)}><i>{track}</i>{trackDefinitions[track].label}</button>)}</div><div className="active-filters">{filters.track !== "All" && <button onClick={() => updateFilter("track", "All")}>{filters.track} <X size={12} /></button>}{filters.country !== "All countries" && <button onClick={() => updateFilter("country", "All countries")}>{filters.country} <X size={12} /></button>}{filters.region !== "All regions" && <button onClick={() => updateFilter("region", "All regions")}>{filters.region} <X size={12} /></button>}{filters.kind !== "All formats" && <button onClick={() => updateFilter("kind", "All formats")}>{filters.kind} <X size={12} /></button>}{filters.type !== "All materials" && <button onClick={() => updateFilter("type", "All materials")}>{filters.type === "Past year questions" ? "PYQs" : filters.type} <X size={12} /></button>}{filters.sourceQuality !== "All source quality" && <button onClick={() => updateFilter("sourceQuality", "All source quality")}>{filters.sourceQuality} <X size={12} /></button>}{filters.fresh !== "All freshness" && <button onClick={() => updateFilter("fresh", "All freshness")}>Verified within {freshnessOptions.find((option) => option.value === filters.fresh)?.label} <X size={12} /></button>}{filters.freeOnly && <button onClick={() => updateFilter("freeOnly", false)}>Free only <X size={12} /></button>}{filters.query && <button onClick={() => updateFilter("query", "")}>“{filters.query}” <X size={12} /></button>}</div></div><div className="results-actions"><button className="export-button" type="button" onClick={() => downloadFilteredCsv(filteredRows)} title="Download all matching records as CSV"><Download size={15} /> Export CSV</button><button className="export-button" type="button" onClick={() => window.print()} title="Print or save the filtered view as PDF"><Printer size={15} /> Print / PDF</button><button className="view-toggle is-active" aria-label="Grid view"><Grid2X2 size={16} /></button><button className="view-toggle" aria-label="List view"><ListFilter size={16} /></button><div className="sort-wrap"><ArrowDownUp size={14} /><select aria-label="Sort results" value={sortBy} onChange={(event) => { setSortBy(event.target.value as typeof sortBy); setPage(1); }}><option value="relevance">Best match</option><option value="country">Country A–Z</option><option value="title">Title A–Z</option></select></div></div></div>
-              {filteredRows.length > 0 ? <><div className="resource-grid">{visibleRows.map((row, index) => <ResourceCard key={`${row.resource_url}-${index}`} row={row} onInspect={setSelectedRow} index={index} />)}</div><div className="catalog-pagination-wrap"><Pagination><PaginationContent><PaginationItem><PaginationPrevious href="#explore" aria-disabled={currentPage === 1} tabIndex={currentPage === 1 ? -1 : undefined} onClick={(event) => { event.preventDefault(); if (currentPage > 1) { setPage(currentPage - 1); document.getElementById("explore")?.scrollIntoView({ behavior: "smooth" }); } }} /></PaginationItem>{pageItems(currentPage, totalPages).map((item, index) => item === "ellipsis" ? <PaginationItem key={`ellipsis-${index}`}><PaginationEllipsis /></PaginationItem> : <PaginationItem key={item}><PaginationLink href="#explore" isActive={item === currentPage} aria-label={`Go to page ${item}`} onClick={(event) => { event.preventDefault(); setPage(item); document.getElementById("explore")?.scrollIntoView({ behavior: "smooth" }); }}>{item}</PaginationLink></PaginationItem>)}<PaginationItem><PaginationNext href="#explore" aria-disabled={currentPage === totalPages} tabIndex={currentPage === totalPages ? -1 : undefined} onClick={(event) => { event.preventDefault(); if (currentPage < totalPages) { setPage(currentPage + 1); document.getElementById("explore")?.scrollIntoView({ behavior: "smooth" }); } }} /></PaginationItem></PaginationContent></Pagination><span className="catalog-pagination__meta"><span className="pagination-route"><span className="coordinate-marker" /> Route / {activeRouteLabel}</span><span>Showing {(currentPage - 1) * PAGE_SIZE + 1}–{Math.min(currentPage * PAGE_SIZE, filteredRows.length)} of {prettyCount(filteredRows.length)} records · Page {currentPage} of {totalPages}</span></span></div></> : <div className="empty-state"><div className="empty-state__icon"><CircleHelp size={25} /></div><h3>No route found yet.</h3><p>Try a broader keyword, switch subject, or reset the filters to see the full index.</p><Button variant="outline" onClick={clearFilters}>Reset the route</Button></div>}
+              {catalogError ? <div className="empty-state" role="alert"><div className="empty-state__icon"><CircleHelp size={25} /></div><h3>The archive could not be loaded.</h3><p>{catalogError}</p><Button variant="outline" onClick={() => setReloadToken((token) => token + 1)}><RotateCcw size={14} /> Try again</Button></div> : filteredRows.length > 0 ? <><div className="resource-grid">{visibleRows.map((row, index) => <ResourceCard key={row.resource_url} row={row} onInspect={setSelectedRow} index={index} />)}</div><div className="catalog-pagination-wrap"><Pagination><PaginationContent><PaginationItem><PaginationPrevious href="#explore" aria-disabled={currentPage === 1} tabIndex={currentPage === 1 ? -1 : undefined} onClick={(event) => { event.preventDefault(); if (currentPage > 1) { setPage(currentPage - 1); document.getElementById("explore")?.scrollIntoView({ behavior: "smooth" }); } }} /></PaginationItem>{pageItems(currentPage, totalPages).map((item, index) => item === "ellipsis" ? <PaginationItem key={`ellipsis-${index}`}><PaginationEllipsis /></PaginationItem> : <PaginationItem key={item}><PaginationLink href="#explore" isActive={item === currentPage} aria-label={`Go to page ${item}`} onClick={(event) => { event.preventDefault(); setPage(item); document.getElementById("explore")?.scrollIntoView({ behavior: "smooth" }); }}>{item}</PaginationLink></PaginationItem>)}<PaginationItem><PaginationNext href="#explore" aria-disabled={currentPage === totalPages} tabIndex={currentPage === totalPages ? -1 : undefined} onClick={(event) => { event.preventDefault(); if (currentPage < totalPages) { setPage(currentPage + 1); document.getElementById("explore")?.scrollIntoView({ behavior: "smooth" }); } }} /></PaginationItem></PaginationContent></Pagination><span className="catalog-pagination__meta"><span className="pagination-route"><span className="coordinate-marker" /> Route / {activeRouteLabel}</span><span>Showing {(currentPage - 1) * PAGE_SIZE + 1}–{Math.min(currentPage * PAGE_SIZE, filteredRows.length)} of {prettyCount(filteredRows.length)} records · Page {currentPage} of {totalPages}</span></span></div></> : <div className="empty-state"><div className="empty-state__icon"><CircleHelp size={25} /></div><h3>No route found yet.</h3><p>Try a broader keyword, switch subject, or reset the filters to see the full index.</p><Button variant="outline" onClick={clearFilters}>Reset the route</Button></div>}
             </div>
           </div>
         </section>
 
         <section className="print-export-sheet" aria-labelledby="print-export-title">
           <div className="print-export-sheet__header"><p className="eyebrow">STEAM Foundry / filtered export</p><h2 id="print-export-title">{prettyCount(filteredRows.length)} matching records</h2><p>Generated from the current explorer filters on {new Intl.DateTimeFormat("en", { dateStyle: "long" }).format(new Date())}.</p></div>
-          <table><thead><tr><th>Title</th><th>Country</th><th>Subject</th><th>Material</th><th>Source</th><th>Last verified</th><th>Public URL</th></tr></thead><tbody>{filteredRows.map((row) => <tr key={`print-${row.resource_url}`}><td>{displayTitle(row)}</td><td>{row.country}</td><td>{row.track}</td><td>{resourceType(row)}</td><td>{displaySourceTitle(row)}</td><td>{lastVerifiedDate(row)}</td><td>{row.resource_url}</td></tr>)}</tbody></table>
+          <table><thead><tr><th>Title</th><th>Country</th><th>Subject</th><th>Material</th><th>Source</th><th>Last verified</th><th>Public URL</th></tr></thead><tbody>{filteredRows.slice(0, PRINT_TABLE_ROW_CAP).map((row) => <tr key={`print-${row.resource_url}`}><td>{displayTitle(row)}</td><td>{row.country}</td><td>{row.track}</td><td>{resourceType(row)}</td><td>{displaySourceTitle(row)}</td><td>{lastVerifiedDate(row)}</td><td>{row.resource_url}</td></tr>)}</tbody></table>
+          {filteredRows.length > PRINT_TABLE_ROW_CAP && <p className="print-export-sheet__note">Showing the first {PRINT_TABLE_ROW_CAP} of {prettyCount(filteredRows.length)} records — use “Download CSV” for the complete filtered export.</p>}
         </section>
 
         <section className="section gateway-section">
@@ -392,9 +452,9 @@ export default function Home() {
         <section id="about" className="about-band"><div className="about-band__mark"><Bookmark size={22} /></div><div><p className="eyebrow eyebrow--light"><span className="eyebrow-marker coordinate-marker" /> Why this archive exists</p><h2>More practice is easy.<br /><em>Better practice is the work.</em></h2></div><p>STEAM Foundry is a navigational layer over a scattered world of official exam archives, contest problem sets, university assignments, and solution collections. It reports the record honestly, keeps provenance visible, and gives you a clear next move.</p></section>
       </main>
 
-      <footer className="site-footer"><a className="brand-lockup" href="#top"><img src="steam-foundry-mark.svg" alt="" className="brand-mark" /><span><strong>STEAM</strong> Foundry</span></a><span className="site-footer__routes" aria-label="STEAM Foundry subject routes">{trackKeys.map((track) => <span key={track} className={`site-footer__route site-footer__route--${track.toLowerCase()}`}><i /> {track}</span>)}</span><a className="site-footer__coverage-link" href="/coverage">Country directory <ArrowRight size={13} /></a><span>Built for curious learners</span></footer>
+      <footer className="site-footer"><a className="brand-lockup" href="#top"><img src="steam-foundry-mark.svg" alt="" className="brand-mark" /><span><strong>STEAM</strong> Foundry</span></a><span className="site-footer__routes" aria-label="STEAM Foundry subject routes">{trackKeys.map((track) => <span key={track} className={`site-footer__route site-footer__route--${track.toLowerCase()}`}><i /> {track}</span>)}</span><Link className="site-footer__coverage-link" href="/coverage">Country directory <ArrowRight size={13} /></Link><span>Built for curious learners</span></footer>
 
-      {selectedRow && <div className="dialog-scrim" role="presentation" onClick={() => setSelectedRow(null)}><section className="resource-dialog" role="dialog" aria-modal="true" aria-labelledby="resource-dialog-title" aria-describedby="resource-dialog-note" tabIndex={-1} onClick={(event) => event.stopPropagation()}><button type="button" className="dialog-close" onClick={() => setSelectedRow(null)} aria-label="Close resource details"><X size={20} /></button><p className="eyebrow"><span className="eyebrow-marker coordinate-marker" /> Resource inspection</p><div className="dialog-tags">{rowTracks(selectedRow).map((track) => <span key={track} className={`track-chip track-chip--${track.toLowerCase()}`}>{track}</span>)}<span className="official-pill"><Check size={13} /> {selectedRow.priority === "A" ? "First-party source" : "Catalog source"}</span>{isFreeResource(selectedRow) && <span className="free-pill"><Check size={13} /> Free access</span>}{hasAccessCaveat(selectedRow) && <span className="caveat-pill" title={verificationLabel(selectedRow)}>Access caveat</span>}</div><h2 id="resource-dialog-title">{displayTitle(selectedRow)}</h2><p className="dialog-source">{displaySourceTitle(selectedRow)}</p><div className="dialog-meta"><div><span>Country / region</span><strong>{selectedRow.country}</strong></div><div><span>Format</span><strong>{resourceKind(selectedRow)}</strong></div><div><span>Material type</span><strong>{resourceType(selectedRow)}</strong></div><div><span>Source quality</span><strong>{sourceQuality(selectedRow)}</strong></div><div><span>Language</span><strong>{selectedRow.language || "English"}</strong></div><div><span>Source type</span><strong>{selectedRow.source_type || "Official archive"}</strong></div><div><span>Access</span><strong className={hasAccessCaveat(selectedRow) ? "dialog-status--warning" : ""}>{isFreeResource(selectedRow) ? accessLabel(selectedRow) : "Not classified"}</strong></div><div><span>Last verified</span><strong>{lastVerifiedDate(selectedRow)}</strong></div></div><div className="dialog-note" id="resource-dialog-note"><span className="eyebrow eyebrow--muted">Archive note</span><p>{displayNotes(selectedRow) || "This record is retained because it points to a substantive, publicly reachable source in the verified catalog."}</p></div><a className="dialog-open" href={selectedRow.resource_url} target="_blank" rel="noreferrer">Open source <ArrowUpRight size={17} /></a></section></div>}
+      {selectedRow && <div className="dialog-scrim" role="presentation" onClick={() => setSelectedRow(null)}><section ref={dialogRef} className="resource-dialog" role="dialog" aria-modal="true" aria-labelledby="resource-dialog-title" aria-describedby="resource-dialog-note" tabIndex={-1} onClick={(event) => event.stopPropagation()}><button type="button" className="dialog-close" onClick={() => setSelectedRow(null)} aria-label="Close resource details"><X size={20} /></button><p className="eyebrow"><span className="eyebrow-marker coordinate-marker" /> Resource inspection</p><div className="dialog-tags">{rowTracks(selectedRow).map((track) => <span key={track} className={`track-chip track-chip--${track.toLowerCase()}`}>{track}</span>)}<span className="official-pill"><Check size={13} /> {selectedRow.priority === "A" ? "First-party source" : "Catalog source"}</span>{isFreeResource(selectedRow) && <span className="free-pill"><Check size={13} /> Free access</span>}{hasAccessCaveat(selectedRow) && <span className="caveat-pill" title={verificationLabel(selectedRow)}>Access caveat</span>}</div><h2 id="resource-dialog-title">{displayTitle(selectedRow)}</h2><p className="dialog-source">{displaySourceTitle(selectedRow)}</p><div className="dialog-meta"><div><span>Country / region</span><strong>{selectedRow.country}</strong></div><div><span>Format</span><strong>{resourceKind(selectedRow)}</strong></div><div><span>Material type</span><strong>{resourceType(selectedRow)}</strong></div><div><span>Source quality</span><strong>{sourceQuality(selectedRow)}</strong></div><div><span>Language</span><strong>{selectedRow.language || "English"}</strong></div><div><span>Source type</span><strong>{selectedRow.source_type || "Official archive"}</strong></div><div><span>Access</span><strong className={hasAccessCaveat(selectedRow) ? "dialog-status--warning" : ""}>{isFreeResource(selectedRow) ? accessLabel(selectedRow) : "Not classified"}</strong></div><div><span>Last verified</span><strong>{lastVerifiedDate(selectedRow)}</strong></div></div><div className="dialog-note" id="resource-dialog-note"><span className="eyebrow eyebrow--muted">Archive note</span><p>{displayNotes(selectedRow) || "This record is retained because it points to a substantive, publicly reachable source in the verified catalog."}</p></div><a className="dialog-open" href={safeExternalUrl(selectedRow.resource_url)} target="_blank" rel="noreferrer">Open source <ArrowUpRight size={17} /></a></section></div>}
     </div>
   );
 }

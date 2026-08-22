@@ -29,7 +29,7 @@ export function registerOAuthRoutes(app: Express) {
       res.status(403).json({ error: "invalid oauth state" });
       return;
     }
-    res.clearCookie(OAUTH_STATE_COOKIE, { path: "/", secure: true, sameSite: "none" });
+    res.clearCookie(OAUTH_STATE_COOKIE, { path: "/", secure: true, sameSite: "lax" });
 
     try {
       const tokenResponse = await sdk.exchangeCodeForToken(code, state);
@@ -48,9 +48,11 @@ export function registerOAuthRoutes(app: Express) {
         lastSignedIn: new Date(),
       });
 
+      const storedUser = await db.getUserByOpenId(userInfo.openId);
       const sessionToken = await sdk.createSessionToken(userInfo.openId, {
         name: userInfo.name || "",
         expiresInMs: ONE_YEAR_MS,
+        tokenVersion: storedUser?.tokenVersion ?? 0,
       });
 
       const cookieOptions = getSessionCookieOptions(req);

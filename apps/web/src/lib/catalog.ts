@@ -1,6 +1,6 @@
 /* STEAM Foundry reminder: keep the catalog provenance-first, dense but breathable, and easy to orient. */
 /* STEAM Foundry catalog layer: keep initial discovery lightweight and defer dense country archives without altering source provenance or route semantics. */
-import { catalogCountryIndex, lazyChunksByCountry } from "@/data/catalogIndex";
+import { catalogCountryIndex, csvChunkLoaders, lazyChunksByCountry } from "@/data/catalogIndex";
 
 export type CatalogRow = {
   country: string;
@@ -71,7 +71,7 @@ function parseCsv(csv: string): CatalogRow[] {
   if (record.trim()) records.push(record);
   if (!records.length) return [];
 
-  const headers = parseCsvLine(records[0]);
+  const headers = parseCsvLine(records[0]!);
   return records.slice(1).map((line) => {
     const values = parseCsvLine(line);
     return headers.reduce((record, header, index) => {
@@ -83,134 +83,34 @@ function parseCsv(csv: string): CatalogRow[] {
 
 export const dedupeByUrl = (rows: CatalogRow[]) => Array.from(new Map(rows.map((row) => [row.resource_url, row])).values());
 
+/** Only http(s) links may render as anchors; data rows must never inject javascript: or data: URLs. */
+export function safeExternalUrl(url: string): string | undefined {
+  const trimmed = url.trim();
+  return /^https?:\/\//i.test(trimmed) ? trimmed : undefined;
+}
+
 /** The explorer starts from index metadata while all resource CSVs are requested as lazy chunks. */
 export const initialCatalog: CatalogRow[] = [];
-
-const csvChunkLoaders: Record<string, () => Promise<{ default: string }>> = {
-  "free_resources.csv": () => import("@/data/free_resources.csv?raw"),
-  "important_country_resources.csv": () => import("@/data/important_country_resources.csv?raw"),
-  "european_wave_resources.csv": () => import("@/data/european_wave_resources.csv?raw"),
-  "next_european_wave_resources.csv": () => import("@/data/next_european_wave_resources.csv?raw"),
-  "south_southeast_asia_resources.csv": () => import("@/data/south_southeast_asia_resources.csv?raw"),
-  "active_country_depth_resources.csv": () => import("@/data/active_country_depth_resources.csv?raw"),
-  "archive_depth_resources.csv": () => import("@/data/archive_depth_resources.csv?raw"),
-  "four_country_depth_resources.csv": () => import("@/data/four_country_depth_resources.csv?raw"),
-  "india_gate_verified_resources.csv": () => import("@/data/india_gate_verified_resources.csv?raw"),
-  "india_tifr_verified_resources.csv": () => import("@/data/india_tifr_verified_resources.csv?raw"),
-  "canada_cemc_bcc_2025_verified_resources.csv": () => import("@/data/canada_cemc_bcc_2025_verified_resources.csv?raw"),
-  "canada_cemc_verified_resources.csv": () => import("@/data/canada_cemc_verified_resources.csv?raw"),
-  "germany_bwinf_verified_resources.csv": () => import("@/data/germany_bwinf_verified_resources.csv?raw"),
-  "france_ccinp_verified_resources.csv": () => import("@/data/france_ccinp_verified_resources.csv?raw"),
-  "japan_mext_verified_resources.csv": () => import("@/data/japan_mext_verified_resources.csv?raw"),
-  "japan_joi_verified_resources.csv": () => import("@/data/japan_joi_verified_resources.csv?raw"),
-  "united_kingdom_bmo_verified_resources.csv": () => import("@/data/united_kingdom_bmo_verified_resources.csv?raw"),
-  "south_africa_computer_olympiad_verified_resources.csv": () => import("@/data/south_africa_computer_olympiad_verified_resources.csv?raw"),
-  "south_africa_foundation_math_verified_resources.csv": () => import("@/data/south_africa_foundation_math_verified_resources.csv?raw"),
-  "south_africa_junior_math_verified_resources.csv": () => import("@/data/south_africa_junior_math_verified_resources.csv?raw"),
-  "south_africa_uj_math_verified_resources.csv": () => import("@/data/south_africa_uj_math_verified_resources.csv?raw"),
-  "south_africa_uj_math_followup_verified_resources.csv": () => import("@/data/south_africa_uj_math_followup_verified_resources.csv?raw"),
-  "south_africa_uct_2018_verified_resources.csv": () => import("@/data/south_africa_uct_2018_verified_resources.csv?raw"),
-  "south_africa_upmc_verified_resources.csv": () => import("@/data/south_africa_upmc_verified_resources.csv?raw"),
-  "south_africa_wits_verified_resources.csv": () => import("@/data/south_africa_wits_verified_resources.csv?raw"),
-  "south_africa_samf_verified_resources.csv": () => import("@/data/south_africa_samf_verified_resources.csv?raw"),
-  "nigeria_waec_verified_resources.csv": () => import("@/data/nigeria_waec_verified_resources.csv?raw"),
-  "new_zealand_nzqa_verified_resources.csv": () => import("@/data/new_zealand_nzqa_verified_resources.csv?raw"),
-  "united_states_usaco_verified_resources.csv": () => import("@/data/united_states_usaco_verified_resources.csv?raw"),
-  "united_states_usaco_2026_verified_resources.csv": () => import("@/data/united_states_usaco_2026_verified_resources.csv?raw"),
-  "brazil_obm_verified_resources.csv": () => import("@/data/brazil_obm_verified_resources.csv?raw"),
-  "italy_math_olympiad_verified_resources.csv": () => import("@/data/italy_math_olympiad_verified_resources.csv?raw"),
-  "netherlands_math_olympiad_verified_resources.csv": () => import("@/data/netherlands_math_olympiad_verified_resources.csv?raw"),
-  "austria_oemo_verified_resources.csv": () => import("@/data/austria_oemo_verified_resources.csv?raw"),
-  "australia_scsa_verified_resources.csv": () => import("@/data/australia_scsa_verified_resources.csv?raw"),
-  "australia_scsa_2022_2025_verified_resources.csv": () => import("@/data/australia_scsa_2022_2025_verified_resources.csv?raw"),
-  "australia_nesa_2020_2023_verified_resources.csv": () => import("@/data/australia_nesa_2020_2023_verified_resources.csv?raw"),
-  "australia_nesa_2016_2019_verified_resources.csv": () => import("@/data/australia_nesa_2016_2019_verified_resources.csv?raw"),
-  "australia_nesa_2015_verified_resources.csv": () => import("@/data/australia_nesa_2015_verified_resources.csv?raw"),
-  "australia_nesa_2014_mg_verified_resources.csv": () => import("@/data/australia_nesa_2014_mg_verified_resources.csv?raw"),
-  "australia_nesa_2015_ext_verified_resources.csv": () => import("@/data/australia_nesa_2015_ext_verified_resources.csv?raw"),
-  "australia_amt_verified_resources.csv": () => import("@/data/australia_amt_verified_resources.csv?raw"),
-  "australia_amt_enrichment_verified_resources.csv": () => import("@/data/australia_amt_enrichment_verified_resources.csv?raw"),
-  "australia_qcaa_2025_verified_resources.csv": () => import("@/data/australia_qcaa_2025_verified_resources.csv?raw"),
-  "australia_qcaa_2023_2025_verified_resources.csv": () => import("@/data/australia_qcaa_2023_2025_verified_resources.csv?raw"),
-  "australia_vcaa_2023_2025_verified_resources.csv": () => import("@/data/australia_vcaa_2023_2025_verified_resources.csv?raw"),
-  "australia_vcaa_guides_verified_resources.csv": () => import("@/data/australia_vcaa_guides_verified_resources.csv?raw"),
-  "republic_of_korea_kice_csat_verified_resources.csv": () => import("@/data/republic_of_korea_kice_csat_verified_resources.csv?raw"),
-  "china_ccf_gesp_verified_resources.csv": () => import("@/data/china_ccf_gesp_verified_resources.csv?raw"),
-  "mexico_omm_canguro_verified_resources.csv": () => import("@/data/mexico_omm_canguro_verified_resources.csv?raw"),
-  "pakistan_pu_verified_resources.csv": () => import("@/data/pakistan_pu_verified_resources.csv?raw"),
-  "pakistan_iba_verified_resources.csv": () => import("@/data/pakistan_iba_verified_resources.csv?raw"),
-  "pakistan_university_followup_verified_resources.csv": () => import("@/data/pakistan_university_followup_verified_resources.csv?raw"),
-  "pakistan_giki_verified_resources.csv": () => import("@/data/pakistan_giki_verified_resources.csv?raw"),
-  "pakistan_gcu_verified_resources.csv": () => import("@/data/pakistan_gcu_verified_resources.csv?raw"),
-  "turkiye_tubitak_verified_resources.csv": () => import("@/data/turkiye_tubitak_verified_resources.csv?raw"),
-  "russia_fipi_advanced_math_verified_resources.csv": () => import("@/data/russia_fipi_advanced_math_verified_resources.csv?raw"),
-  "poland_om_verified_resources.csv": () => import("@/data/poland_om_verified_resources.csv?raw"),
-  "belgium_vwo_verified_resources.csv": () => import("@/data/belgium_vwo_verified_resources.csv?raw"),
-  "czechia_mo_verified_resources.csv": () => import("@/data/czechia_mo_verified_resources.csv?raw"),
-  "malaysia_peninsula_dcs1123_verified_resources.csv": () => import("@/data/malaysia_peninsula_dcs1123_verified_resources.csv?raw"),
-  "malaysia_mco_verified_resources.csv": () => import("@/data/malaysia_mco_verified_resources.csv?raw"),
-  "malaysia_imonst_verified_resources.csv": () => import("@/data/malaysia_imonst_verified_resources.csv?raw"),
-  "malaysia_uitm_mo_verified_resources.csv": () => import("@/data/malaysia_uitm_mo_verified_resources.csv?raw"),
-  "malaysia_mcc2025_verified_resources.csv": () => import("@/data/malaysia_mcc2025_verified_resources.csv?raw"),
-  "malaysia_emos_imas2025_verified_resources.csv": () => import("@/data/malaysia_emos_imas2025_verified_resources.csv?raw"),
-  "malaysia_emos_som2025_verified_resources.csv": () => import("@/data/malaysia_emos_som2025_verified_resources.csv?raw"),
-  "malaysia_mco2015_solutions_verified_resources.csv": () => import("@/data/malaysia_mco2015_solutions_verified_resources.csv?raw"),
-  "malaysia_mco_codeforces_verified_resources.csv": () => import("@/data/malaysia_mco_codeforces_verified_resources.csv?raw"),
-  "malaysia_mco_direct_tasks_verified_resources.csv": () => import("@/data/malaysia_mco_direct_tasks_verified_resources.csv?raw"),
-  "malaysia_mco_2024_2025_verified_resources.csv": () => import("@/data/malaysia_mco_2024_2025_verified_resources.csv?raw"),
-  "malaysia_mco_2023_verified_resources.csv": () => import("@/data/malaysia_mco_2023_verified_resources.csv?raw"),
-  "indonesia_toki_verified_resources.csv": () => import("@/data/indonesia_toki_verified_resources.csv?raw"),
-  "indonesia_osn_solutions_verified_resources.csv": () => import("@/data/indonesia_osn_solutions_verified_resources.csv?raw"),
-  "indonesia_osn_pdf_verified_resources.csv": () => import("@/data/indonesia_osn_pdf_verified_resources.csv?raw"),
-  "indonesia_ioi2022_verified_resources.csv": () => import("@/data/indonesia_ioi2022_verified_resources.csv?raw"),
-  "indonesia_binus_icpc2022_verified_resources.csv": () => import("@/data/indonesia_binus_icpc2022_verified_resources.csv?raw"),
-  "indonesia_binus_icpc2021_verified_resources.csv": () => import("@/data/indonesia_binus_icpc2021_verified_resources.csv?raw"),
-  "indonesia_binus_icpc2020_verified_resources.csv": () => import("@/data/indonesia_binus_icpc2020_verified_resources.csv?raw"),
-  "singapore_official_math_verified_resources.csv": () => import("@/data/singapore_official_math_verified_resources.csv?raw"),
-  "thailand_timo_verified_resources.csv": () => import("@/data/thailand_timo_verified_resources.csv?raw"),
-  "thailand_kku_dm_verified_resources.csv": () => import("@/data/thailand_kku_dm_verified_resources.csv?raw"),
-  "thailand_kku_2014_verified_resources.csv": () => import("@/data/thailand_kku_2014_verified_resources.csv?raw"),
-  "thailand_muic_verified_resources.csv": () => import("@/data/thailand_muic_verified_resources.csv?raw"),
-  "thailand_chula_verified_resources.csv": () => import("@/data/thailand_chula_verified_resources.csv?raw"),
-  "thailand_siit_verified_resources.csv": () => import("@/data/thailand_siit_verified_resources.csv?raw"),
-  "thailand_kku_2010_assessments_verified_resources.csv": () => import("@/data/thailand_kku_2010_assessments_verified_resources.csv?raw"),
-  "thailand_kku_2010_quizzes_verified_resources.csv": () => import("@/data/thailand_kku_2010_quizzes_verified_resources.csv?raw"),
-  "thailand_kku_2014_2013_exams_verified_resources.csv": () => import("@/data/thailand_kku_2014_2013_exams_verified_resources.csv?raw"),
-  "thailand_kku_2012_homework_verified_resources.csv": () => import("@/data/thailand_kku_2012_homework_verified_resources.csv?raw"),
-  "thailand_kku_2011_assessments_verified_resources.csv": () => import("@/data/thailand_kku_2011_assessments_verified_resources.csv?raw"),
-  "thailand_kku_2009_homework_verified_resources.csv": () => import("@/data/thailand_kku_2009_homework_verified_resources.csv?raw"),
-  "thailand_chula_2007_practice_verified_resources.csv": () => import("@/data/thailand_chula_2007_practice_verified_resources.csv?raw"),
-  "thailand_mahidol_muic_math_verified_resources.csv": () => import("@/data/thailand_mahidol_muic_math_verified_resources.csv?raw"),
-  "thailand_icpc_bangkok2025_verified_resources.csv": () => import("@/data/thailand_icpc_bangkok2025_verified_resources.csv?raw"),
-  "thailand_chula_icpc2024_editorials_verified_resources.csv": () => import("@/data/thailand_chula_icpc2024_editorials_verified_resources.csv?raw"),
-  "thailand_kku_discrete_snapshot_verified_resources.csv": () => import("@/data/thailand_kku_discrete_snapshot_verified_resources.csv?raw"),
-  "philippines_noiph_pdf_verified_resources.csv": () => import("@/data/philippines_noiph_pdf_verified_resources.csv?raw"),
-  "philippines_noiph2020_gym_verified_resources.csv": () => import("@/data/philippines_noiph2020_gym_verified_resources.csv?raw"),
-  "philippines_noiph2020_eliminations_verified_resources.csv": () => import("@/data/philippines_noiph2020_eliminations_verified_resources.csv?raw"),
-  "sri_lanka_ousl_verified_resources.csv": () => import("@/data/sri_lanka_ousl_verified_resources.csv?raw"),
-  "kenya_must_verified_resources.csv": () => import("@/data/kenya_must_verified_resources.csv?raw"),
-  "kenya_university_math_verified_resources.csv": () => import("@/data/kenya_university_math_verified_resources.csv?raw"),
-  "tanzania_necta_verified_resources.csv": () => import("@/data/tanzania_necta_verified_resources.csv?raw"),
-  "uganda_uneb_verified_resources.csv": () => import("@/data/uganda_uneb_verified_resources.csv?raw"),
-  "nepal_lec_verified_resources.csv": () => import("@/data/nepal_lec_verified_resources.csv?raw"),
-  "nepal_mano_verified_resources.csv": () => import("@/data/nepal_mano_verified_resources.csv?raw"),
-  "zimbabwe_buse_verified_resources.csv": () => import("@/data/zimbabwe_buse_verified_resources.csv?raw"),
-  "rwanda_nesa_verified_resources.csv": () => import("@/data/rwanda_nesa_verified_resources.csv?raw"),
-};
 
 const chunkCache = new Map<string, Promise<CatalogRow[]>>();
 
 export const catalogCountries = Object.keys(catalogCountryIndex).sort((left, right) => left.localeCompare(right));
-export const lazyCatalogChunkNames = Object.keys(csvChunkLoaders);
+export const lazyCatalogChunkNames = Object.keys(csvChunkLoaders).sort((left, right) => left.localeCompare(right));
 
 export function lazyChunksForCountries(countries: string[]) {
   return Array.from(new Set(countries.flatMap((country) => lazyChunksByCountry[country] ?? [])));
 }
 
 export async function loadCatalogChunks(chunkNames: string[]) {
-  const rows = await Promise.all(chunkNames.filter((name) => csvChunkLoaders[name]).map((name) => {
+  const rows = await Promise.all(chunkNames.map((name) => {
+    const loader = csvChunkLoaders[name];
+    if (!loader) {
+      throw new Error(`Unknown catalog chunk: ${name}`);
+    }
     if (!chunkCache.has(name)) {
-      chunkCache.set(name, csvChunkLoaders[name]().then((module) => parseCsv(module.default)));
+      const load = loader().then((module) => parseCsv(module.default));
+      load.catch(() => chunkCache.delete(name));
+      chunkCache.set(name, load);
     }
     return chunkCache.get(name)!;
   }));

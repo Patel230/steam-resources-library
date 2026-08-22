@@ -1,4 +1,4 @@
-import { desc, eq } from "drizzle-orm";
+import { and, desc, eq, inArray, sql } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
 import { InsertUser, reviewerQueue, users } from "../../drizzle/schema";
 import { ENV } from './_core/env';
@@ -26,8 +26,7 @@ export async function upsertUser(user: InsertUser): Promise<void> {
 
   const db = await getDb();
   if (!db) {
-    console.warn("[Database] Cannot upsert user: database not available");
-    return;
+    throw new Error("[Database] Cannot upsert user: database not available");
   }
 
   try {
@@ -90,6 +89,15 @@ export async function getUserByOpenId(openId: string) {
   return result.length > 0 ? result[0] : undefined;
 }
 
+/** Invalidates all previously issued session JWTs for the user. */
+export async function bumpUserTokenVersion(openId: string): Promise<void> {
+  const db = requireDatabase(await getDb());
+  await db
+    .update(users)
+    .set({ tokenVersion: sql`${users.tokenVersion} + 1` })
+    .where(eq(users.openId, openId));
+}
+
 function requireDatabase<T>(database: T | null): T {
   if (!database) throw new Error("The reviewer queue is temporarily unavailable. Please try again shortly.");
   return database;
@@ -118,6 +126,9 @@ export async function listReviewerQueueItems(status?: ReviewerQueueStatus) {
 
 export async function decideReviewerQueueItem(input: ReviewerQueueDecision, reviewerId: number) {
   const db = requireDatabase(await getDb());
+  // Only pending/researching items may transition; this makes the decision a
+  // compare-and-set so concurrent reviewers cannot silently overwrite each
+  // other's verdict on an already-decided item.
   const result = await db
     .update(reviewerQueue)
     .set({
@@ -126,8 +137,15 @@ export async function decideReviewerQueueItem(input: ReviewerQueueDecision, revi
       reviewerNotes: input.reviewerNotes ?? null,
       reviewedAt: new Date(),
     })
-    .where(eq(reviewerQueue.id, input.id));
+    .where(
+      and(
+        eq(reviewerQueue.id, input.id),
+        inArray(reviewerQueue.status, ["pending", "researching"]),
+      ),
+    );
 
-  if (result[0].affectedRows === 0) throw new Error("The suggestion no longer exists.");
+  if ((result[0]?.affectedRows ?? 0) === 0) {
+    throw new Error("The suggestion no longer exists or was already decided.");
+  }
   return { id: input.id, status: input.status } as const;
 }

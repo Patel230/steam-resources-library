@@ -6,7 +6,12 @@ export const reviewerQueueSubmissionSchema = z.object({
   submitterName: z.string().trim().min(2, "Enter your name.").max(160),
   submitterEmail: z.string().trim().toLowerCase().email("Enter a valid email address.").max(320),
   country: z.string().trim().min(2, "Choose a country.").max(120),
-  resourceUrl: z.string().trim().url("Enter a complete public URL.").max(2048),
+  resourceUrl: z
+    .string()
+    .trim()
+    .url("Enter a complete public URL.")
+    .max(2048)
+    .refine((value) => /^https?:\/\//i.test(value), "Only http(s) URLs are accepted."),
   resourceTitle: z.string().trim().min(2, "Name the source or archive.").max(255),
   sourceType: z.string().trim().min(2, "Choose a material type.").max(96),
   notes: z.string().trim().max(4000).optional().transform((value) => value || undefined),

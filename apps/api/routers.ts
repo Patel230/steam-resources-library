@@ -1,6 +1,7 @@
 import { COOKIE_NAME } from "@shared/const";
 import * as db from "./db";
 import { getSessionCookieOptions } from "./_core/cookies";
+import { rateLimit } from "./_core/rateLimit";
 import { systemRouter } from "./_core/systemRouter";
 import { adminProcedure, publicProcedure, router } from "./_core/trpc";
 import { reviewerQueueDecisionSchema, reviewerQueueStatusSchema, reviewerQueueSubmissionSchema } from "./reviewerQueue";
@@ -11,7 +12,16 @@ export const appRouter = router({
   system: systemRouter,
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),
-    logout: publicProcedure.mutation(({ ctx }) => {
+    logout: publicProcedure.mutation(async ({ ctx }) => {
+      // Invalidate every token previously issued for this user. Best-effort:
+      // the cookie is always cleared even when the database is unreachable.
+      if (ctx.user && !ctx.user.isCron) {
+        try {
+          await db.bumpUserTokenVersion(ctx.user.openId);
+        } catch (error) {
+          console.error("[Auth] Failed to revoke sessions on logout:", error);
+        }
+      }
       const cookieOptions = getSessionCookieOptions(ctx.req);
       ctx.res.clearCookie(COOKIE_NAME, { ...cookieOptions, maxAge: -1 });
       return {
@@ -21,7 +31,8 @@ export const appRouter = router({
   }),
   reviewerQueue: router({
     /** Public leads are stored for manual review only; this never edits catalog files. */
-    submit: publicProcedure.input(reviewerQueueSubmissionSchema).mutation(async ({ input }) => {
+    submit: publicProcedure.input(reviewerQueueSubmissionSchema).mutation(async ({ ctx, input }) => {
+      rateLimit(ctx.req, { key: "reviewerQueue.submit", limit: 5, windowMs: 60 * 60 * 1000 });
       const id = await db.createReviewerQueueItem(input);
       return { id } as const;
     }),

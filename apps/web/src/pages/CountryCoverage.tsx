@@ -5,6 +5,7 @@ import { ArrowRight, ArrowUpRight, Check, Compass, MapPinned, Search, X } from "
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { AtlasLegend } from "@/components/AtlasLegend";
+import { Link } from "wouter";
 import { MEMBER_STATE_SOURCE } from "@/data/memberStates";
 import { regionForState } from "@/data/regions";
 import { CoverageStatus, coverageIndex, globalTrackStats, regionCoverage } from "@/lib/coverage";
@@ -94,13 +95,13 @@ export default function CountryCoverage() {
     <div className="coverage-page">
       <AtlasLegend active="states" />
       <header className="coverage-page__header">
-        <a className="brand-lockup" href="/" aria-label="STEAM Foundry home">
+        <Link className="brand-lockup" href="/" aria-label="STEAM Foundry home">
           <img src="steam-foundry-mark.svg" alt="" className="brand-mark" />
           <span><strong>STEAM</strong> Foundry</span>
-        </a>
+        </Link>
         <nav className="coverage-page__nav" aria-label="Coverage navigation">
-          <a href="/">Explore archive</a>
-          <a href="/coverage" aria-current="page">Country directory</a>
+          <Link href="/">Explore archive</Link>
+          <Link href="/coverage" aria-current="page">Country directory</Link>
         </nav>
         <span className="coverage-page__header-note"><span /> 193 member-state ledger</span>
       </header>
@@ -113,8 +114,8 @@ export default function CountryCoverage() {
               <h1>Know what is mapped.<br /><em>See what is next.</em></h1>
               <p className="coverage-page__hero-copy">The country ledger separates live free-resource coverage from pending expansion. The threshold route ranks every country with verified free records that remains below 100, making the next honest research candidates visible.</p>
               <div className="coverage-page__hero-actions">
-                <Button asChild className="coverage-page__primary-action"><a href="/">Browse the archive <ArrowRight size={16} /></a></Button>
-                <a className="coverage-page__source-link" href="/coverage?progress=near">Nearest to 100 <ArrowRight size={15} /></a>
+                <Button asChild className="coverage-page__primary-action"><Link href="/">Browse the archive <ArrowRight size={16} /></Link></Button>
+                <Link className="coverage-page__source-link" href="/coverage?progress=near">Nearest to 100 <ArrowRight size={15} /></Link>
                 <a className="coverage-page__source-link" href={MEMBER_STATE_SOURCE} target="_blank" rel="noreferrer">UN roster source <ArrowUpRight size={15} /></a>
               </div>
             </div>
@@ -138,8 +139,8 @@ export default function CountryCoverage() {
 
           <nav className="coverage-route-key" aria-label="Atlas coverage route key">
             <div className="coverage-route-key__compass"><Compass size={17} /><span>North / coverage field</span><small>SA · 193</small></div>
-            <a href="/" className="coverage-route-key__route"><b>01</b><span>Archive</span><small>Source trails</small></a>
-            <a href="/coverage" className="coverage-route-key__route is-active" aria-current="page"><b>02</b><span>Directory</span><small>Country ledger</small></a>
+            <Link href="/" className="coverage-route-key__route"><b>01</b><span>Archive</span><small>Source trails</small></Link>
+            <Link href="/coverage" className="coverage-route-key__route is-active" aria-current="page"><b>02</b><span>Directory</span><small>Country ledger</small></Link>
             <a href="#coverage-ledger" className="coverage-route-key__route"><b>03</b><span>Threshold</span><small>100-resource route</small></a>
             <a href="/?country=Bangladesh#explore" className="coverage-route-key__route"><b>04</b><span>Source desk</span><small>Public access review</small></a>
           </nav>
@@ -201,7 +202,7 @@ export default function CountryCoverage() {
         </section>
       </main>
 
-      <footer className="coverage-page__footer"><a className="brand-lockup" href="/"><img src="steam-foundry-mark.svg" alt="" className="brand-mark" /><span><strong>STEAM</strong> Foundry</span></a><span>Country coverage is a live research ledger, not a completeness claim.</span><a href="/">Return to explore <ArrowRight size={14} /></a></footer>
+      <footer className="coverage-page__footer"><Link className="brand-lockup" href="/"><img src="steam-foundry-mark.svg" alt="" className="brand-mark" /><span><strong>STEAM</strong> Foundry</span></Link><span>Country coverage is a live research ledger, not a completeness claim.</span><Link href="/">Return to explore <ArrowRight size={14} /></Link></footer>
     </div>
   );
 }

@@ -282,6 +282,7 @@ h1 em, h2 em { color: #fcd34d; font-style: italic; -webkit-text-fill-color: #fcd
 .print-export-sheet th, .print-export-sheet td { text-align: left; padding: 12px 14px; border-bottom: 1px solid rgba(255,255,255,0.08); font-size: 12px; }
 .print-export-sheet th { color: #8b96b0; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; }
 .print-export-sheet td { color: #c2cbe0; }
+.print-export-sheet__note { color: #8b96b0; font-size: 12px; margin-top: 14px; }
 
 /* ===== Responsive ===== */
 @media (max-width: 980px) {

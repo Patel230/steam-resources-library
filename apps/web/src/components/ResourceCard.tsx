@@ -3,7 +3,7 @@
 import { ArrowUpRight, BadgeCheck, BookOpen, Globe2, Languages, Sparkles, TriangleAlert } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { CatalogRow, accessLabel, displayNotes, displaySourceTitle, displayTitle, hasAccessCaveat, hostFromUrl, isFreeResource, lastVerifiedDate, resourceKind, rowTracks, sourceQuality, trackDefinitions, verificationLabel } from "@/lib/catalog";
+import { CatalogRow, accessLabel, displayNotes, displaySourceTitle, displayTitle, hasAccessCaveat, hostFromUrl, isFreeResource, lastVerifiedDate, resourceKind, rowTracks, safeExternalUrl, sourceQuality, trackDefinitions, verificationLabel } from "@/lib/catalog";
 
 type ResourceCardProps = {
   row: CatalogRow;
@@ -57,9 +57,9 @@ export function ResourceCard({ row, onInspect, index }: ResourceCardProps) {
           <Button variant="ghost" size="sm" className="inspect-button" onClick={() => onInspect(row)}>
             Inspect <Sparkles size={14} />
           </Button>
-          <a className="open-link" href={row.resource_url} target="_blank" rel="noreferrer">
+          {safeExternalUrl(row.resource_url) && <a className="open-link" href={safeExternalUrl(row.resource_url)} target="_blank" rel="noreferrer">
             Open <ArrowUpRight size={15} />
-          </a>
+          </a>}
         </div>
       </div>
     </article>

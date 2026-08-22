@@ -1,19 +1,6 @@
 {
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "noEmit": true,
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "strict": true,
-    "jsx": "preserve",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "allowImportingTsExtensions": true,
-    "isolatedModules": true,
-    "resolveJsonModule": true,
-    "forceConsistentCasingInFileNames": true,
-    "target": "ES2022",
-    "lib": ["esnext", "dom", "dom.iterable"],
-    "baseUrl": ".",
     "types": ["node", "vite/client"],
     "paths": {
       "@/*": ["./apps/web/src/*"],
@@ -26,5 +13,5 @@
     "apps/api/**/*",
     "packages/shared/**/*"
   ],
-  "exclude": ["node_modules", "dist", "build", "**/*.test.ts"]
+  "exclude": ["node_modules", "dist", "build"]
 }

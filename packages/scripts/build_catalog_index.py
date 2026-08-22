@@ -170,6 +170,16 @@ def main() -> None:
     payload += "export type CountryCatalogStat = { catalogCount: number; freeCount: number; caveatCount: number };\n\n"
     payload += f"export const catalogCountryIndex: Record<string, CountryCatalogStat> = {json.dumps(countries, ensure_ascii=False, indent=2)};\n\n"
     payload += f"export const lazyChunksByCountry: Record<string, string[]> = {json.dumps(country_chunks, ensure_ascii=False, indent=2)};\n\n"
+    loader_entries = ",\n".join(
+        f'  "{filename}": () => import("@/data/{filename}?raw")'
+        for filename in sorted(FILES)
+    )
+    payload += (
+        "export const csvChunkLoaders: Record<string, () => Promise<{ default: string }>> = {\n"
+        f"{loader_entries},\n"
+        "};\n\n"
+    )
+    payload += f"export const coreChunkNames = {json.dumps(sorted(INITIAL_FILES), indent=2)} as const;\n\n"
     payload += "export const catalogIndexTotals = " + json.dumps({
         "catalogCount": len(rows_by_url),
         "freeCount": sum(1 for row in rows_by_url.values() if row.get("free_resource", "").strip().lower() == "yes"),

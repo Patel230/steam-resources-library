@@ -22,7 +22,11 @@ export type SessionPayload = {
   openId: string;
   appId: string;
   name: string;
+  tokenVersion?: number;
 };
+
+/** Sessions are refreshed at most once per hour to avoid a DB write per request. */
+const LAST_SIGNED_IN_THROTTLE_MS = 60 * 60 * 1000;
 
 const EXCHANGE_TOKEN_PATH = `/webdev.v1.WebDevAuthPublicService/ExchangeToken`;
 const GET_USER_INFO_PATH = `/webdev.v1.WebDevAuthPublicService/GetUserInfo`;
@@ -165,13 +169,14 @@ class SDKServer {
    */
   async createSessionToken(
     openId: string,
-    options: { expiresInMs?: number; name?: string } = {}
+    options: { expiresInMs?: number; name?: string; tokenVersion?: number } = {}
   ): Promise<string> {
     return this.signSession(
       {
         openId,
         appId: ENV.appId,
         name: options.name || "",
+        tokenVersion: options.tokenVersion ?? 0,
       },
       options
     );
@@ -190,6 +195,7 @@ class SDKServer {
       openId: payload.openId,
       appId: payload.appId,
       name: payload.name,
+      tokenVersion: payload.tokenVersion ?? 0,
     })
       .setProtectedHeader({ alg: "HS256", typ: "JWT" })
       .setExpirationTime(expirationSeconds)
@@ -198,7 +204,7 @@ class SDKServer {
 
   async verifySession(
     cookieValue: string | undefined | null
-  ): Promise<{ openId: string; appId: string; name: string } | null> {
+  ): Promise<{ openId: string; appId: string; name: string; tokenVersion: number } | null> {
     if (!cookieValue) {
       console.warn("[Auth] Missing session cookie");
       return null;
@@ -209,7 +215,7 @@ class SDKServer {
       const { payload } = await jwtVerify(cookieValue, secretKey, {
         algorithms: ["HS256"],
       });
-      const { openId, appId, name } = payload as Record<string, unknown>;
+      const { openId, appId, name, tokenVersion } = payload as Record<string, unknown>;
 
       if (
         !isNonEmptyString(openId) ||
@@ -220,10 +226,18 @@ class SDKServer {
         return null;
       }
 
+      // Tokens minted for a different app sharing the same secret must never
+      // authenticate here.
+      if (appId !== ENV.appId) {
+        console.warn("[Auth] Session appId does not match this app");
+        return null;
+      }
+
       return {
         openId,
         appId,
         name,
+        tokenVersion: typeof tokenVersion === "number" && Number.isInteger(tokenVersion) ? tokenVersion : 0,
       };
     } catch (error) {
       console.warn("[Auth] Session verification failed", String(error));
@@ -311,10 +325,20 @@ class SDKServer {
       throw ForbiddenError("User not found");
     }
 
-    await db.upsertUser({
-      openId: user.openId,
-      lastSignedIn: signedInAt,
-    });
+    // Logout bumps the stored tokenVersion; older JWTs are rejected even
+    // though their signature is still valid.
+    if ((session.tokenVersion ?? 0) !== user.tokenVersion) {
+      throw ForbiddenError("Session revoked");
+    }
+
+    // Throttled: avoid a DB write on every request (reads included).
+    const staleSinceMs = signedInAt.getTime() - new Date(user.lastSignedIn).getTime();
+    if (staleSinceMs >= LAST_SIGNED_IN_THROTTLE_MS) {
+      await db.upsertUser({
+        openId: user.openId,
+        lastSignedIn: signedInAt,
+      });
+    }
 
     return user;
   }

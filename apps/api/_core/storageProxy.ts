@@ -1,11 +1,19 @@
 import type { Express } from "express";
 import { ENV } from "./env";
 
+const STORAGE_KEY_PATTERN = /^[A-Za-z0-9][A-Za-z0-9/_.-]{0,511}$/;
+
 export function registerStorageProxy(app: Express) {
   app.get("/manus-storage/*", async (req, res) => {
     const key = (req.params as Record<string, string>)[0];
     if (!key) {
       res.status(400).send("Missing storage key");
+      return;
+    }
+
+    // Only well-shaped, non-traversing object keys may be presigned.
+    if (!STORAGE_KEY_PATTERN.test(key) || key.includes("..")) {
+      res.status(400).send("Invalid storage key");
       return;
     }
 
@@ -23,6 +31,7 @@ export function registerStorageProxy(app: Express) {
 
       const forgeResp = await fetch(forgeUrl, {
         headers: { Authorization: `Bearer ${ENV.forgeApiKey}` },
+        signal: AbortSignal.timeout(30_000),
       });
 
       if (!forgeResp.ok) {

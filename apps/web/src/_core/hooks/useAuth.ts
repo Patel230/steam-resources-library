@@ -51,10 +51,6 @@ export function useAuth(options?: UseAuthOptions) {
   }, [logoutMutation, utils]);
 
   const state = useMemo(() => {
-    localStorage.setItem(
-      "manus-runtime-user-info",
-      JSON.stringify(meQuery.data)
-    );
     return {
       user: meQuery.data ?? null,
       loading: meQuery.isLoading || logoutMutation.isPending,
@@ -68,6 +64,17 @@ export function useAuth(options?: UseAuthOptions) {
     logoutMutation.error,
     logoutMutation.isPending,
   ]);
+
+  // Persist the reflected auth state only as an effect — never during render.
+  useEffect(() => {
+    try {
+      if (meQuery.data) {
+        localStorage.setItem("manus-runtime-user-info", JSON.stringify(meQuery.data));
+      } else {
+        localStorage.removeItem("manus-runtime-user-info");
+      }
+    } catch {}
+  }, [meQuery.data]);
 
   useEffect(() => {
     if (!redirectOnUnauthenticated) return;

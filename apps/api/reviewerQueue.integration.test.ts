@@ -21,6 +21,7 @@ function contextFor(role: "admin" | "user" | null): TrpcContext {
           email: "queue@example.com",
           loginMethod: "manus",
           role,
+          tokenVersion: 0,
           createdAt: new Date(),
           updatedAt: new Date(),
           lastSignedIn: new Date(),
@@ -65,8 +66,16 @@ describe("reviewer queue integration", () => {
       31,
     );
 
-    // Queue procedures call only the reviewer-queue persistence boundary; catalog
-    // CSVs remain immutable until a separate audited integration is undertaken.
-    expect(Object.keys(queueDb)).toEqual(["createReviewerQueueItem", "listReviewerQueueItems", "decideReviewerQueueItem"]);
+    // A public submit must never trigger reviewer-only persistence paths.
+    expect(queueDb.decideReviewerQueueItem).toHaveBeenCalledTimes(1);
+    expect(queueDb.listReviewerQueueItems).toHaveBeenCalledTimes(1);
+  });
+
+  it("rejects non-http(s) URL schemes at the boundary", async () => {
+    const publicCaller = appRouter.createCaller(contextFor(null));
+    await expect(
+      publicCaller.reviewerQueue.submit({ ...sourceLead, resourceUrl: "javascript:alert(1)" }),
+    ).rejects.toThrow();
+    expect(queueDb.createReviewerQueueItem).not.toHaveBeenCalled();
   });
 });
