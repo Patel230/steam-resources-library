@@ -222,49 +222,41 @@ export const trackDefinitions = {
     label: "General Aptitude",
     short: "Reasoning, verbal, quantitative, and analytical practice.",
     color: "saffron",
-    image: "/manus-storage/ga-signal-illustration_2ca1945f.jpg",
   },
   EM: {
     label: "Engineering Mathematics",
     short: "Calculus, linear algebra, probability, and mathematical methods.",
     color: "teal",
-    image: "/manus-storage/em-signal-illustration_df924d6c.jpg",
   },
   DM: {
     label: "Discrete Mathematics",
     short: "Logic, combinatorics, graphs, algorithms, and structures.",
     color: "coral",
-    image: "/manus-storage/dm-signal-illustration_d73d2edb.jpg",
   },
   CS: {
     label: "Computer Science",
     short: "Algorithms, data structures, programming, and computational thinking.",
     color: "indigo",
-    image: "/manus-storage/dm-signal-illustration_d73d2edb.jpg",
   },
   S: {
     label: "Science",
     short: "Physics, chemistry, biology, and scientific reasoning.",
     color: "sky",
-    image: "/manus-storage/em-signal-illustration_df924d6c.jpg",
   },
   T: {
     label: "Technology",
     short: "Practical computing, tooling, and applied digital skills.",
     color: "slate",
-    image: "/manus-storage/em-signal-illustration_df924d6c.jpg",
   },
   E: {
     label: "Engineering",
     short: "Design, systems, and applied problem-solving practice.",
     color: "olive",
-    image: "/manus-storage/em-signal-illustration_df924d6c.jpg",
   },
   A: {
     label: "Arts",
     short: "Creative, spatial, and design-oriented thinking.",
     color: "rose",
-    image: "/manus-storage/ga-signal-illustration_2ca1945f.jpg",
   },
 } as const;
 

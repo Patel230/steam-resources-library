@@ -95,7 +95,7 @@ export default function CountryCoverage() {
       <AtlasLegend active="states" />
       <header className="coverage-page__header">
         <a className="brand-lockup" href="/" aria-label="STEAM Foundry home">
-          <img src="/steam-foundry-mark.svg" alt="" className="brand-mark" />
+          <img src="steam-foundry-mark.svg" alt="" className="brand-mark" />
           <span><strong>STEAM</strong> Foundry</span>
         </a>
         <nav className="coverage-page__nav" aria-label="Coverage navigation">
@@ -201,7 +201,7 @@ export default function CountryCoverage() {
         </section>
       </main>
 
-      <footer className="coverage-page__footer"><a className="brand-lockup" href="/"><img src="/steam-foundry-mark.svg" alt="" className="brand-mark" /><span><strong>STEAM</strong> Foundry</span></a><span>Country coverage is a live research ledger, not a completeness claim.</span><a href="/">Return to explore <ArrowRight size={14} /></a></footer>
+      <footer className="coverage-page__footer"><a className="brand-lockup" href="/"><img src="steam-foundry-mark.svg" alt="" className="brand-mark" /><span><strong>STEAM</strong> Foundry</span></a><span>Country coverage is a live research ledger, not a completeness claim.</span><a href="/">Return to explore <ArrowRight size={14} /></a></footer>
     </div>
   );
 }
