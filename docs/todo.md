@@ -501,7 +501,7 @@
 - [x] Add or refine GitHub Actions automation for pull-request testing and deployment validation
 - [x] Run local checks, verify workflow configuration, commit, and push the open-source automation update
 - [x] Package the STEAM Resources Library research, validation, and open-source publishing workflow as a reusable Manus skill
-- [ ] Verify GitHub Pages workflow status and live site URL
+- [x] Verify GitHub Pages workflow status and live site URL
 - [x] Add CODE_OF_CONDUCT.md, SECURITY.md, GitHub issue templates, and pull-request template under the MIT-licensed repository
 
 ## Inherited-session continuation
@@ -548,7 +548,14 @@
 - [x] Commit and push the verified GitHub Pages audit script.
 - [x] Confirm the remote commit and latest workflow status.
 
-## Manual Pages initialization attempt
+- [x] Open GitHub repository Pages settings and initialize the Actions source if authorized.
+- [x] Rerun the Pages workflow and verify the API and live URL.
+
+## Full repository publication
+
+- [x] Inspect all remaining tracked and untracked repository changes.
+- [x] Commit and push all intended repository files.
+- [x] Verify that local and remote main branches match.
 
 - [ ] Open GitHub repository Pages settings and initialize the Actions source if authorized.
 - [ ] Rerun the Pages workflow and verify the API and live URL.
