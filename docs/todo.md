@@ -396,7 +396,7 @@
 
 - [ ] South Africa Stellenbosch SATMO tranche: audit the official Stellenbosch University mathematics-olympiad archive for direct public English problem and solution files, and retain only locally verified substantive records with first-party provenance.
 
-# End of current continuation milestones
+- [x] Twenty-four-country verified tranche batch: integrated 1,049 non-duplicate first-party English free resources across 24 new lazy chunks (Algeria ACPC, Austria ÖMO, Belgium BAPC, Brazil ICPC, Chile ICPC, Colombia ICPCLAC, Czechia, Egypt MoE, Greece SEEMOUS, Hungary NWERC, Indonesia BINUS ICPC 2023–2024, Kenya university, Nepal TU IoE mathematics, Netherlands, Pakistan, Peru ICPC, Philippines NOI.PH 2022–2023, Republic of Korea KAIST POW, Romania RMM, Saudi Arabia KFUPM, Spain university, Thailand KKU 188200/198200 exams, Türkiye METU, Ukraine NWERC) after URL-uniqueness, all-English metadata, and free-access checks; regenerated the lazy catalog index and coverage baseline. Austria reached 100, Netherlands 107, and Saudi Arabia 743 classified-free records; the catalog now holds 4,635 unique verified URLs across 160 catalog labels with 13/100 top-100 countries at target. Vitest (5 files, 19 tests), TypeScript, and the production build all pass.
 
 - [x] South Africa Wits Mathematics Competition tranche: audited the official University of the Witwatersrand past-paper archive. Seventy-four of 76 direct public English question/solution PDFs passed local substantive-content checks and were registered in the lazy South Africa tranche; two candidates were excluded under the clean-content rule. South Africa now has 118 classified-free records and is the seventh top-100 country to reach 100+.
 

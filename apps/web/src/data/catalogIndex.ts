@@ -29,8 +29,8 @@ export const catalogCountryIndex: Record<string, CountryCatalogStat> = {
     "caveatCount": 1
   },
   "Algeria": {
-    "catalogCount": 2,
-    "freeCount": 2,
+    "catalogCount": 5,
+    "freeCount": 5,
     "caveatCount": 0
   },
   "Antigua and Barbuda": {
@@ -63,6 +63,11 @@ export const catalogCountryIndex: Record<string, CountryCatalogStat> = {
     "freeCount": 1,
     "caveatCount": 1
   },
+  "Austria": {
+    "catalogCount": 100,
+    "freeCount": 100,
+    "caveatCount": 0
+  },
   "Azerbaijan": {
     "catalogCount": 2,
     "freeCount": 2,
@@ -89,8 +94,8 @@ export const catalogCountryIndex: Record<string, CountryCatalogStat> = {
     "caveatCount": 0
   },
   "Belgium": {
-    "catalogCount": 1,
-    "freeCount": 1,
+    "catalogCount": 4,
+    "freeCount": 4,
     "caveatCount": 0
   },
   "Belize": {
@@ -124,8 +129,8 @@ export const catalogCountryIndex: Record<string, CountryCatalogStat> = {
     "caveatCount": 0
   },
   "Brazil": {
-    "catalogCount": 3,
-    "freeCount": 3,
+    "catalogCount": 12,
+    "freeCount": 12,
     "caveatCount": 0
   },
   "Brunei": {
@@ -159,8 +164,8 @@ export const catalogCountryIndex: Record<string, CountryCatalogStat> = {
     "caveatCount": 0
   },
   "Chile": {
-    "catalogCount": 2,
-    "freeCount": 2,
+    "catalogCount": 5,
+    "freeCount": 5,
     "caveatCount": 0
   },
   "China": {
@@ -169,8 +174,8 @@ export const catalogCountryIndex: Record<string, CountryCatalogStat> = {
     "caveatCount": 1
   },
   "Colombia": {
-    "catalogCount": 2,
-    "freeCount": 2,
+    "catalogCount": 8,
+    "freeCount": 8,
     "caveatCount": 0
   },
   "Comoros": {
@@ -209,8 +214,8 @@ export const catalogCountryIndex: Record<string, CountryCatalogStat> = {
     "caveatCount": 1
   },
   "Czechia": {
-    "catalogCount": 2,
-    "freeCount": 2,
+    "catalogCount": 12,
+    "freeCount": 12,
     "caveatCount": 0
   },
   "Democratic Republic of the Congo": {
@@ -239,8 +244,8 @@ export const catalogCountryIndex: Record<string, CountryCatalogStat> = {
     "caveatCount": 0
   },
   "Egypt": {
-    "catalogCount": 5,
-    "freeCount": 5,
+    "catalogCount": 8,
+    "freeCount": 8,
     "caveatCount": 0
   },
   "El Salvador": {
@@ -319,8 +324,8 @@ export const catalogCountryIndex: Record<string, CountryCatalogStat> = {
     "caveatCount": 0
   },
   "Greece": {
-    "catalogCount": 1,
-    "freeCount": 1,
+    "catalogCount": 3,
+    "freeCount": 3,
     "caveatCount": 0
   },
   "Grenada": {
@@ -354,13 +359,13 @@ export const catalogCountryIndex: Record<string, CountryCatalogStat> = {
     "caveatCount": 0
   },
   "Hungary": {
-    "catalogCount": 1,
-    "freeCount": 1,
+    "catalogCount": 9,
+    "freeCount": 9,
     "caveatCount": 0
   },
   "Republic of Korea": {
-    "catalogCount": 2,
-    "freeCount": 2,
+    "catalogCount": 20,
+    "freeCount": 20,
     "caveatCount": 0
   },
   "Singapore": {
@@ -379,8 +384,8 @@ export const catalogCountryIndex: Record<string, CountryCatalogStat> = {
     "caveatCount": 0
   },
   "Indonesia": {
-    "catalogCount": 46,
-    "freeCount": 46,
+    "catalogCount": 74,
+    "freeCount": 74,
     "caveatCount": 0
   },
   "Iran": {
@@ -419,8 +424,8 @@ export const catalogCountryIndex: Record<string, CountryCatalogStat> = {
     "caveatCount": 0
   },
   "Kenya": {
-    "catalogCount": 7,
-    "freeCount": 7,
+    "catalogCount": 24,
+    "freeCount": 24,
     "caveatCount": 0
   },
   "Kiribati": {
@@ -539,24 +544,19 @@ export const catalogCountryIndex: Record<string, CountryCatalogStat> = {
     "caveatCount": 0
   },
   "Nepal": {
-    "catalogCount": 9,
-    "freeCount": 9,
+    "catalogCount": 15,
+    "freeCount": 15,
     "caveatCount": 0
   },
   "Netherlands": {
-    "catalogCount": 81,
-    "freeCount": 81,
+    "catalogCount": 107,
+    "freeCount": 107,
     "caveatCount": 0
   },
   "Ireland": {
     "catalogCount": 4,
     "freeCount": 4,
     "caveatCount": 1
-  },
-  "Austria": {
-    "catalogCount": 3,
-    "freeCount": 3,
-    "caveatCount": 0
   },
   "Niger": {
     "catalogCount": 1,
@@ -584,8 +584,8 @@ export const catalogCountryIndex: Record<string, CountryCatalogStat> = {
     "caveatCount": 0
   },
   "Pakistan": {
-    "catalogCount": 48,
-    "freeCount": 48,
+    "catalogCount": 50,
+    "freeCount": 50,
     "caveatCount": 0
   },
   "Panama": {
@@ -604,13 +604,13 @@ export const catalogCountryIndex: Record<string, CountryCatalogStat> = {
     "caveatCount": 1
   },
   "Peru": {
-    "catalogCount": 3,
-    "freeCount": 3,
+    "catalogCount": 13,
+    "freeCount": 13,
     "caveatCount": 0
   },
   "Philippines": {
-    "catalogCount": 15,
-    "freeCount": 15,
+    "catalogCount": 20,
+    "freeCount": 20,
     "caveatCount": 0
   },
   "Poland": {
@@ -629,8 +629,8 @@ export const catalogCountryIndex: Record<string, CountryCatalogStat> = {
     "caveatCount": 0
   },
   "Romania": {
-    "catalogCount": 2,
-    "freeCount": 2,
+    "catalogCount": 28,
+    "freeCount": 28,
     "caveatCount": 0
   },
   "Russia": {
@@ -664,8 +664,8 @@ export const catalogCountryIndex: Record<string, CountryCatalogStat> = {
     "caveatCount": 0
   },
   "Saudi Arabia": {
-    "catalogCount": 1,
-    "freeCount": 1,
+    "catalogCount": 743,
+    "freeCount": 743,
     "caveatCount": 0
   },
   "Senegal": {
@@ -699,8 +699,8 @@ export const catalogCountryIndex: Record<string, CountryCatalogStat> = {
     "caveatCount": 0
   },
   "Spain": {
-    "catalogCount": 1,
-    "freeCount": 1,
+    "catalogCount": 6,
+    "freeCount": 6,
     "caveatCount": 0
   },
   "Sri Lanka": {
@@ -729,8 +729,8 @@ export const catalogCountryIndex: Record<string, CountryCatalogStat> = {
     "caveatCount": 0
   },
   "Thailand": {
-    "catalogCount": 87,
-    "freeCount": 87,
+    "catalogCount": 93,
+    "freeCount": 93,
     "caveatCount": 0
   },
   "Timor-Leste": {
@@ -759,8 +759,8 @@ export const catalogCountryIndex: Record<string, CountryCatalogStat> = {
     "caveatCount": 0
   },
   "Türkiye": {
-    "catalogCount": 2,
-    "freeCount": 2,
+    "catalogCount": 6,
+    "freeCount": 6,
     "caveatCount": 0
   },
   "Uganda": {
@@ -769,8 +769,8 @@ export const catalogCountryIndex: Record<string, CountryCatalogStat> = {
     "caveatCount": 0
   },
   "Ukraine": {
-    "catalogCount": 1,
-    "freeCount": 1,
+    "catalogCount": 11,
+    "freeCount": 11,
     "caveatCount": 0
   },
   "United Arab Emirates": {
@@ -813,7 +813,8 @@ export const lazyChunksByCountry: Record<string, string[]> = {
     "albania_expansion_verified_resources.csv"
   ],
   "Algeria": [
-    "algeria_expansion_verified_resources.csv"
+    "algeria_expansion_verified_resources.csv",
+    "algeria_tranche_acpc_verified_resources.csv"
   ],
   "Antigua and Barbuda": [
     "antigua_and_barbuda_expansion_verified_resources.csv"
@@ -840,6 +841,9 @@ export const lazyChunksByCountry: Record<string, string[]> = {
     "australia_vcaa_2023_2025_verified_resources.csv",
     "australia_vcaa_guides_verified_resources.csv"
   ],
+  "Austria": [
+    "austria_tranche_oemo_verified_resources.csv"
+  ],
   "Azerbaijan": [
     "azerbaijan_expansion_verified_resources.csv"
   ],
@@ -856,6 +860,7 @@ export const lazyChunksByCountry: Record<string, string[]> = {
     "belarus_expansion_verified_resources.csv"
   ],
   "Belgium": [
+    "belgium_bapc_verified_resources.csv",
     "belgium_expansion_verified_resources.csv"
   ],
   "Belize": [
@@ -877,7 +882,8 @@ export const lazyChunksByCountry: Record<string, string[]> = {
     "botswana_expansion_verified_resources.csv"
   ],
   "Brazil": [
-    "brazil_expansion_verified_resources.csv"
+    "brazil_expansion_verified_resources.csv",
+    "brazil_tranche_icpc_verified_resources.csv"
   ],
   "Brunei": [
     "brunei_expansion_verified_resources.csv"
@@ -905,13 +911,15 @@ export const lazyChunksByCountry: Record<string, string[]> = {
     "central_african_republic_expansion_verified_resources.csv"
   ],
   "Chile": [
-    "chile_expansion_verified_resources.csv"
+    "chile_expansion_verified_resources.csv",
+    "chile_tranche_icpc_verified_resources.csv"
   ],
   "China": [
     "china_telegram_intake_verified_resources.csv"
   ],
   "Colombia": [
-    "colombia_expansion_verified_resources.csv"
+    "colombia_expansion_verified_resources.csv",
+    "colombia_tranche_icpclac_verified_resources.csv"
   ],
   "Comoros": [
     "comoros_expansion_verified_resources.csv"
@@ -932,7 +940,8 @@ export const lazyChunksByCountry: Record<string, string[]> = {
     "cyprus_expansion_verified_resources.csv"
   ],
   "Czechia": [
-    "czechia_expansion_verified_resources.csv"
+    "czechia_expansion_verified_resources.csv",
+    "czechia_tranche_verified_resources.csv"
   ],
   "Côte d’Ivoire": [
     "cote_divoire_expansion_verified_resources.csv"
@@ -953,7 +962,8 @@ export const lazyChunksByCountry: Record<string, string[]> = {
     "ecuador_expansion_verified_resources.csv"
   ],
   "Egypt": [
-    "egypt_expansion_verified_resources.csv"
+    "egypt_expansion_verified_resources.csv",
+    "egypt_tranche_moe_verified_resources.csv"
   ],
   "El Salvador": [
     "el_salvador_expansion_verified_resources.csv"
@@ -996,7 +1006,8 @@ export const lazyChunksByCountry: Record<string, string[]> = {
     "global_telegram_intake_verified_resources.csv"
   ],
   "Greece": [
-    "greece_expansion_verified_resources.csv"
+    "greece_expansion_verified_resources.csv",
+    "greece_seemous_verified_resources.csv"
   ],
   "Grenada": [
     "grenada_expansion_verified_resources.csv"
@@ -1017,7 +1028,8 @@ export const lazyChunksByCountry: Record<string, string[]> = {
     "honduras_expansion_verified_resources.csv"
   ],
   "Hungary": [
-    "hungary_expansion_verified_resources.csv"
+    "hungary_expansion_verified_resources.csv",
+    "hungary_tranche_nwerc_verified_resources.csv"
   ],
   "India": [
     "india_gate_verified_resources.csv",
@@ -1028,6 +1040,7 @@ export const lazyChunksByCountry: Record<string, string[]> = {
     "indonesia_binus_icpc2020_verified_resources.csv",
     "indonesia_binus_icpc2021_verified_resources.csv",
     "indonesia_binus_icpc2022_verified_resources.csv",
+    "indonesia_binus_icpc2023_2024_verified_resources.csv",
     "indonesia_expansion_verified_resources.csv",
     "indonesia_ioi2022_verified_resources.csv"
   ],
@@ -1059,6 +1072,7 @@ export const lazyChunksByCountry: Record<string, string[]> = {
   ],
   "Kenya": [
     "kenya_must_verified_resources.csv",
+    "kenya_tranche_university_verified_resources.csv",
     "kenya_university_math_verified_resources.csv"
   ],
   "Kiribati": [
@@ -1143,10 +1157,12 @@ export const lazyChunksByCountry: Record<string, string[]> = {
   ],
   "Nepal": [
     "nepal_lec_verified_resources.csv",
-    "nepal_mano_verified_resources.csv"
+    "nepal_mano_verified_resources.csv",
+    "nepal_tu_ioe_math_verified_resources.csv"
   ],
   "Netherlands": [
-    "netherlands_math_olympiad_verified_resources.csv"
+    "netherlands_math_olympiad_verified_resources.csv",
+    "netherlands_tranche_verified_resources.csv"
   ],
   "New Zealand": [
     "archive_depth_resources.csv",
@@ -1174,6 +1190,7 @@ export const lazyChunksByCountry: Record<string, string[]> = {
     "pakistan_giki_verified_resources.csv",
     "pakistan_iba_verified_resources.csv",
     "pakistan_pu_verified_resources.csv",
+    "pakistan_tranche_verified_resources.csv",
     "pakistan_university_followup_verified_resources.csv"
   ],
   "Panama": [
@@ -1186,12 +1203,14 @@ export const lazyChunksByCountry: Record<string, string[]> = {
     "paraguay_expansion_verified_resources.csv"
   ],
   "Peru": [
-    "peru_expansion_verified_resources.csv"
+    "peru_expansion_verified_resources.csv",
+    "peru_tranche_icpc_verified_resources.csv"
   ],
   "Philippines": [
     "philippines_expansion_verified_resources.csv",
     "philippines_noiph2020_eliminations_verified_resources.csv",
     "philippines_noiph2020_gym_verified_resources.csv",
+    "philippines_noiph2022_2023_verified_resources.csv",
     "philippines_noiph_pdf_verified_resources.csv"
   ],
   "Poland": [
@@ -1203,11 +1222,15 @@ export const lazyChunksByCountry: Record<string, string[]> = {
   "Qatar": [
     "qatar_expansion_verified_resources.csv"
   ],
+  "Republic of Korea": [
+    "republic_of_korea_kaist_pow_verified_resources.csv"
+  ],
   "Republic of Moldova": [
     "moldova_expansion_verified_resources.csv"
   ],
   "Romania": [
-    "romania_expansion_verified_resources.csv"
+    "romania_expansion_verified_resources.csv",
+    "romania_tranche_rmm_verified_resources.csv"
   ],
   "Russia": [
     "russia_expansion_verified_resources.csv"
@@ -1228,7 +1251,8 @@ export const lazyChunksByCountry: Record<string, string[]> = {
     "samoa_expansion_verified_resources.csv"
   ],
   "Saudi Arabia": [
-    "saudi_arabia_telegram_intake_verified_resources.csv"
+    "saudi_arabia_telegram_intake_verified_resources.csv",
+    "saudi_arabia_tranche_kfupm_verified_resources.csv"
   ],
   "Senegal": [
     "senegal_expansion_verified_resources.csv"
@@ -1263,7 +1287,8 @@ export const lazyChunksByCountry: Record<string, string[]> = {
     "south_africa_wits_verified_resources.csv"
   ],
   "Spain": [
-    "spain_expansion_verified_resources.csv"
+    "spain_expansion_verified_resources.csv",
+    "spain_tranche_university_verified_resources.csv"
   ],
   "Sri Lanka": [
     "sri_lanka_ousl_verified_resources.csv"
@@ -1285,6 +1310,7 @@ export const lazyChunksByCountry: Record<string, string[]> = {
     "thailand_chula_icpc2024_editorials_verified_resources.csv",
     "thailand_chula_verified_resources.csv",
     "thailand_icpc_bangkok2025_verified_resources.csv",
+    "thailand_kku_188200_198200_exams_verified_resources.csv",
     "thailand_kku_2009_homework_verified_resources.csv",
     "thailand_kku_2010_assessments_verified_resources.csv",
     "thailand_kku_2010_quizzes_verified_resources.csv",
@@ -1314,13 +1340,15 @@ export const lazyChunksByCountry: Record<string, string[]> = {
     "tunisia_expansion_verified_resources.csv"
   ],
   "Türkiye": [
-    "turkiye_expansion_verified_resources.csv"
+    "turkiye_expansion_verified_resources.csv",
+    "turkiye_tranche_metu_verified_resources.csv"
   ],
   "Uganda": [
     "uganda_uneb_verified_resources.csv"
   ],
   "Ukraine": [
-    "ukraine_expansion_verified_resources.csv"
+    "ukraine_expansion_verified_resources.csv",
+    "ukraine_tranche_nwerc_verified_resources.csv"
   ],
   "United Arab Emirates": [
     "united_arab_emirates_expansion_verified_resources.csv"
@@ -1357,6 +1385,7 @@ export const csvChunkLoaders: Record<string, () => Promise<{ default: string }>>
   "afghanistan_expansion_verified_resources.csv": () => import("@/data/afghanistan_expansion_verified_resources.csv?raw"),
   "albania_expansion_verified_resources.csv": () => import("@/data/albania_expansion_verified_resources.csv?raw"),
   "algeria_expansion_verified_resources.csv": () => import("@/data/algeria_expansion_verified_resources.csv?raw"),
+  "algeria_tranche_acpc_verified_resources.csv": () => import("@/data/algeria_tranche_acpc_verified_resources.csv?raw"),
   "antigua_and_barbuda_expansion_verified_resources.csv": () => import("@/data/antigua_and_barbuda_expansion_verified_resources.csv?raw"),
   "archive_depth_resources.csv": () => import("@/data/archive_depth_resources.csv?raw"),
   "argentina_expansion_verified_resources.csv": () => import("@/data/argentina_expansion_verified_resources.csv?raw"),
@@ -1376,11 +1405,13 @@ export const csvChunkLoaders: Record<string, () => Promise<{ default: string }>>
   "australia_vcaa_2023_2025_verified_resources.csv": () => import("@/data/australia_vcaa_2023_2025_verified_resources.csv?raw"),
   "australia_vcaa_guides_verified_resources.csv": () => import("@/data/australia_vcaa_guides_verified_resources.csv?raw"),
   "austria_oemo_verified_resources.csv": () => import("@/data/austria_oemo_verified_resources.csv?raw"),
+  "austria_tranche_oemo_verified_resources.csv": () => import("@/data/austria_tranche_oemo_verified_resources.csv?raw"),
   "azerbaijan_expansion_verified_resources.csv": () => import("@/data/azerbaijan_expansion_verified_resources.csv?raw"),
   "bahrain_expansion_verified_resources.csv": () => import("@/data/bahrain_expansion_verified_resources.csv?raw"),
   "bangladesh_expansion_verified_resources.csv": () => import("@/data/bangladesh_expansion_verified_resources.csv?raw"),
   "barbados_expansion_verified_resources.csv": () => import("@/data/barbados_expansion_verified_resources.csv?raw"),
   "belarus_expansion_verified_resources.csv": () => import("@/data/belarus_expansion_verified_resources.csv?raw"),
+  "belgium_bapc_verified_resources.csv": () => import("@/data/belgium_bapc_verified_resources.csv?raw"),
   "belgium_expansion_verified_resources.csv": () => import("@/data/belgium_expansion_verified_resources.csv?raw"),
   "belgium_vwo_verified_resources.csv": () => import("@/data/belgium_vwo_verified_resources.csv?raw"),
   "belize_expansion_verified_resources.csv": () => import("@/data/belize_expansion_verified_resources.csv?raw"),
@@ -1391,6 +1422,7 @@ export const csvChunkLoaders: Record<string, () => Promise<{ default: string }>>
   "botswana_expansion_verified_resources.csv": () => import("@/data/botswana_expansion_verified_resources.csv?raw"),
   "brazil_expansion_verified_resources.csv": () => import("@/data/brazil_expansion_verified_resources.csv?raw"),
   "brazil_obm_verified_resources.csv": () => import("@/data/brazil_obm_verified_resources.csv?raw"),
+  "brazil_tranche_icpc_verified_resources.csv": () => import("@/data/brazil_tranche_icpc_verified_resources.csv?raw"),
   "brunei_expansion_verified_resources.csv": () => import("@/data/brunei_expansion_verified_resources.csv?raw"),
   "bulgaria_expansion_verified_resources.csv": () => import("@/data/bulgaria_expansion_verified_resources.csv?raw"),
   "burkina_faso_expansion_verified_resources.csv": () => import("@/data/burkina_faso_expansion_verified_resources.csv?raw"),
@@ -1401,9 +1433,11 @@ export const csvChunkLoaders: Record<string, () => Promise<{ default: string }>>
   "canada_telegram_intake_verified_resources.csv": () => import("@/data/canada_telegram_intake_verified_resources.csv?raw"),
   "central_african_republic_expansion_verified_resources.csv": () => import("@/data/central_african_republic_expansion_verified_resources.csv?raw"),
   "chile_expansion_verified_resources.csv": () => import("@/data/chile_expansion_verified_resources.csv?raw"),
+  "chile_tranche_icpc_verified_resources.csv": () => import("@/data/chile_tranche_icpc_verified_resources.csv?raw"),
   "china_ccf_gesp_verified_resources.csv": () => import("@/data/china_ccf_gesp_verified_resources.csv?raw"),
   "china_telegram_intake_verified_resources.csv": () => import("@/data/china_telegram_intake_verified_resources.csv?raw"),
   "colombia_expansion_verified_resources.csv": () => import("@/data/colombia_expansion_verified_resources.csv?raw"),
+  "colombia_tranche_icpclac_verified_resources.csv": () => import("@/data/colombia_tranche_icpclac_verified_resources.csv?raw"),
   "comoros_expansion_verified_resources.csv": () => import("@/data/comoros_expansion_verified_resources.csv?raw"),
   "congo_expansion_verified_resources.csv": () => import("@/data/congo_expansion_verified_resources.csv?raw"),
   "costa_rica_expansion_verified_resources.csv": () => import("@/data/costa_rica_expansion_verified_resources.csv?raw"),
@@ -1413,12 +1447,14 @@ export const csvChunkLoaders: Record<string, () => Promise<{ default: string }>>
   "cyprus_expansion_verified_resources.csv": () => import("@/data/cyprus_expansion_verified_resources.csv?raw"),
   "czechia_expansion_verified_resources.csv": () => import("@/data/czechia_expansion_verified_resources.csv?raw"),
   "czechia_mo_verified_resources.csv": () => import("@/data/czechia_mo_verified_resources.csv?raw"),
+  "czechia_tranche_verified_resources.csv": () => import("@/data/czechia_tranche_verified_resources.csv?raw"),
   "democratic_republic_of_the_congo_expansion_verified_resources.csv": () => import("@/data/democratic_republic_of_the_congo_expansion_verified_resources.csv?raw"),
   "denmark_expansion_verified_resources.csv": () => import("@/data/denmark_expansion_verified_resources.csv?raw"),
   "dominica_expansion_verified_resources.csv": () => import("@/data/dominica_expansion_verified_resources.csv?raw"),
   "dominican_republic_expansion_verified_resources.csv": () => import("@/data/dominican_republic_expansion_verified_resources.csv?raw"),
   "ecuador_expansion_verified_resources.csv": () => import("@/data/ecuador_expansion_verified_resources.csv?raw"),
   "egypt_expansion_verified_resources.csv": () => import("@/data/egypt_expansion_verified_resources.csv?raw"),
+  "egypt_tranche_moe_verified_resources.csv": () => import("@/data/egypt_tranche_moe_verified_resources.csv?raw"),
   "el_salvador_expansion_verified_resources.csv": () => import("@/data/el_salvador_expansion_verified_resources.csv?raw"),
   "estonia_expansion_verified_resources.csv": () => import("@/data/estonia_expansion_verified_resources.csv?raw"),
   "eswatini_expansion_verified_resources.csv": () => import("@/data/eswatini_expansion_verified_resources.csv?raw"),
@@ -1436,6 +1472,7 @@ export const csvChunkLoaders: Record<string, () => Promise<{ default: string }>>
   "ghana_expansion_verified_resources.csv": () => import("@/data/ghana_expansion_verified_resources.csv?raw"),
   "global_telegram_intake_verified_resources.csv": () => import("@/data/global_telegram_intake_verified_resources.csv?raw"),
   "greece_expansion_verified_resources.csv": () => import("@/data/greece_expansion_verified_resources.csv?raw"),
+  "greece_seemous_verified_resources.csv": () => import("@/data/greece_seemous_verified_resources.csv?raw"),
   "grenada_expansion_verified_resources.csv": () => import("@/data/grenada_expansion_verified_resources.csv?raw"),
   "guatemala_expansion_verified_resources.csv": () => import("@/data/guatemala_expansion_verified_resources.csv?raw"),
   "guinea_expansion_verified_resources.csv": () => import("@/data/guinea_expansion_verified_resources.csv?raw"),
@@ -1443,6 +1480,7 @@ export const csvChunkLoaders: Record<string, () => Promise<{ default: string }>>
   "haiti_expansion_verified_resources.csv": () => import("@/data/haiti_expansion_verified_resources.csv?raw"),
   "honduras_expansion_verified_resources.csv": () => import("@/data/honduras_expansion_verified_resources.csv?raw"),
   "hungary_expansion_verified_resources.csv": () => import("@/data/hungary_expansion_verified_resources.csv?raw"),
+  "hungary_tranche_nwerc_verified_resources.csv": () => import("@/data/hungary_tranche_nwerc_verified_resources.csv?raw"),
   "important_country_resources.csv": () => import("@/data/important_country_resources.csv?raw"),
   "india_gate_verified_resources.csv": () => import("@/data/india_gate_verified_resources.csv?raw"),
   "india_telegram_intake_verified_resources.csv": () => import("@/data/india_telegram_intake_verified_resources.csv?raw"),
@@ -1450,6 +1488,7 @@ export const csvChunkLoaders: Record<string, () => Promise<{ default: string }>>
   "indonesia_binus_icpc2020_verified_resources.csv": () => import("@/data/indonesia_binus_icpc2020_verified_resources.csv?raw"),
   "indonesia_binus_icpc2021_verified_resources.csv": () => import("@/data/indonesia_binus_icpc2021_verified_resources.csv?raw"),
   "indonesia_binus_icpc2022_verified_resources.csv": () => import("@/data/indonesia_binus_icpc2022_verified_resources.csv?raw"),
+  "indonesia_binus_icpc2023_2024_verified_resources.csv": () => import("@/data/indonesia_binus_icpc2023_2024_verified_resources.csv?raw"),
   "indonesia_expansion_verified_resources.csv": () => import("@/data/indonesia_expansion_verified_resources.csv?raw"),
   "indonesia_ioi2022_verified_resources.csv": () => import("@/data/indonesia_ioi2022_verified_resources.csv?raw"),
   "indonesia_osn_pdf_verified_resources.csv": () => import("@/data/indonesia_osn_pdf_verified_resources.csv?raw"),
@@ -1466,6 +1505,7 @@ export const csvChunkLoaders: Record<string, () => Promise<{ default: string }>>
   "jordan_expansion_verified_resources.csv": () => import("@/data/jordan_expansion_verified_resources.csv?raw"),
   "kazakhstan_expansion_verified_resources.csv": () => import("@/data/kazakhstan_expansion_verified_resources.csv?raw"),
   "kenya_must_verified_resources.csv": () => import("@/data/kenya_must_verified_resources.csv?raw"),
+  "kenya_tranche_university_verified_resources.csv": () => import("@/data/kenya_tranche_university_verified_resources.csv?raw"),
   "kenya_university_math_verified_resources.csv": () => import("@/data/kenya_university_math_verified_resources.csv?raw"),
   "kiribati_expansion_verified_resources.csv": () => import("@/data/kiribati_expansion_verified_resources.csv?raw"),
   "kuwait_expansion_verified_resources.csv": () => import("@/data/kuwait_expansion_verified_resources.csv?raw"),
@@ -1506,7 +1546,9 @@ export const csvChunkLoaders: Record<string, () => Promise<{ default: string }>>
   "namibia_expansion_verified_resources.csv": () => import("@/data/namibia_expansion_verified_resources.csv?raw"),
   "nepal_lec_verified_resources.csv": () => import("@/data/nepal_lec_verified_resources.csv?raw"),
   "nepal_mano_verified_resources.csv": () => import("@/data/nepal_mano_verified_resources.csv?raw"),
+  "nepal_tu_ioe_math_verified_resources.csv": () => import("@/data/nepal_tu_ioe_math_verified_resources.csv?raw"),
   "netherlands_math_olympiad_verified_resources.csv": () => import("@/data/netherlands_math_olympiad_verified_resources.csv?raw"),
+  "netherlands_tranche_verified_resources.csv": () => import("@/data/netherlands_tranche_verified_resources.csv?raw"),
   "new_zealand_nzqa_verified_resources.csv": () => import("@/data/new_zealand_nzqa_verified_resources.csv?raw"),
   "new_zealand_telegram_intake_verified_resources.csv": () => import("@/data/new_zealand_telegram_intake_verified_resources.csv?raw"),
   "next_european_wave_resources.csv": () => import("@/data/next_european_wave_resources.csv?raw"),
@@ -1522,21 +1564,26 @@ export const csvChunkLoaders: Record<string, () => Promise<{ default: string }>>
   "pakistan_hec_etc_verified_resources.csv": () => import("@/data/pakistan_hec_etc_verified_resources.csv?raw"),
   "pakistan_iba_verified_resources.csv": () => import("@/data/pakistan_iba_verified_resources.csv?raw"),
   "pakistan_pu_verified_resources.csv": () => import("@/data/pakistan_pu_verified_resources.csv?raw"),
+  "pakistan_tranche_verified_resources.csv": () => import("@/data/pakistan_tranche_verified_resources.csv?raw"),
   "pakistan_university_followup_verified_resources.csv": () => import("@/data/pakistan_university_followup_verified_resources.csv?raw"),
   "panama_expansion_verified_resources.csv": () => import("@/data/panama_expansion_verified_resources.csv?raw"),
   "papua_new_guinea_expansion_verified_resources.csv": () => import("@/data/papua_new_guinea_expansion_verified_resources.csv?raw"),
   "paraguay_expansion_verified_resources.csv": () => import("@/data/paraguay_expansion_verified_resources.csv?raw"),
   "peru_expansion_verified_resources.csv": () => import("@/data/peru_expansion_verified_resources.csv?raw"),
+  "peru_tranche_icpc_verified_resources.csv": () => import("@/data/peru_tranche_icpc_verified_resources.csv?raw"),
   "philippines_expansion_verified_resources.csv": () => import("@/data/philippines_expansion_verified_resources.csv?raw"),
   "philippines_noiph2020_eliminations_verified_resources.csv": () => import("@/data/philippines_noiph2020_eliminations_verified_resources.csv?raw"),
   "philippines_noiph2020_gym_verified_resources.csv": () => import("@/data/philippines_noiph2020_gym_verified_resources.csv?raw"),
+  "philippines_noiph2022_2023_verified_resources.csv": () => import("@/data/philippines_noiph2022_2023_verified_resources.csv?raw"),
   "philippines_noiph_pdf_verified_resources.csv": () => import("@/data/philippines_noiph_pdf_verified_resources.csv?raw"),
   "poland_expansion_verified_resources.csv": () => import("@/data/poland_expansion_verified_resources.csv?raw"),
   "poland_om_verified_resources.csv": () => import("@/data/poland_om_verified_resources.csv?raw"),
   "portugal_expansion_verified_resources.csv": () => import("@/data/portugal_expansion_verified_resources.csv?raw"),
   "qatar_expansion_verified_resources.csv": () => import("@/data/qatar_expansion_verified_resources.csv?raw"),
+  "republic_of_korea_kaist_pow_verified_resources.csv": () => import("@/data/republic_of_korea_kaist_pow_verified_resources.csv?raw"),
   "republic_of_korea_kice_csat_verified_resources.csv": () => import("@/data/republic_of_korea_kice_csat_verified_resources.csv?raw"),
   "romania_expansion_verified_resources.csv": () => import("@/data/romania_expansion_verified_resources.csv?raw"),
+  "romania_tranche_rmm_verified_resources.csv": () => import("@/data/romania_tranche_rmm_verified_resources.csv?raw"),
   "russia_expansion_verified_resources.csv": () => import("@/data/russia_expansion_verified_resources.csv?raw"),
   "russia_fipi_advanced_math_verified_resources.csv": () => import("@/data/russia_fipi_advanced_math_verified_resources.csv?raw"),
   "rwanda_nesa_verified_resources.csv": () => import("@/data/rwanda_nesa_verified_resources.csv?raw"),
@@ -1545,6 +1592,7 @@ export const csvChunkLoaders: Record<string, () => Promise<{ default: string }>>
   "saint_vincent_and_the_grenadines_expansion_verified_resources.csv": () => import("@/data/saint_vincent_and_the_grenadines_expansion_verified_resources.csv?raw"),
   "samoa_expansion_verified_resources.csv": () => import("@/data/samoa_expansion_verified_resources.csv?raw"),
   "saudi_arabia_telegram_intake_verified_resources.csv": () => import("@/data/saudi_arabia_telegram_intake_verified_resources.csv?raw"),
+  "saudi_arabia_tranche_kfupm_verified_resources.csv": () => import("@/data/saudi_arabia_tranche_kfupm_verified_resources.csv?raw"),
   "senegal_expansion_verified_resources.csv": () => import("@/data/senegal_expansion_verified_resources.csv?raw"),
   "serbia_expansion_verified_resources.csv": () => import("@/data/serbia_expansion_verified_resources.csv?raw"),
   "sierra_leone_expansion_verified_resources.csv": () => import("@/data/sierra_leone_expansion_verified_resources.csv?raw"),
@@ -1567,6 +1615,7 @@ export const csvChunkLoaders: Record<string, () => Promise<{ default: string }>>
   "south_africa_wits_verified_resources.csv": () => import("@/data/south_africa_wits_verified_resources.csv?raw"),
   "south_southeast_asia_resources.csv": () => import("@/data/south_southeast_asia_resources.csv?raw"),
   "spain_expansion_verified_resources.csv": () => import("@/data/spain_expansion_verified_resources.csv?raw"),
+  "spain_tranche_university_verified_resources.csv": () => import("@/data/spain_tranche_university_verified_resources.csv?raw"),
   "sri_lanka_ousl_verified_resources.csv": () => import("@/data/sri_lanka_ousl_verified_resources.csv?raw"),
   "switzerland_expansion_verified_resources.csv": () => import("@/data/switzerland_expansion_verified_resources.csv?raw"),
   "syria_expansion_verified_resources.csv": () => import("@/data/syria_expansion_verified_resources.csv?raw"),
@@ -1577,6 +1626,7 @@ export const csvChunkLoaders: Record<string, () => Promise<{ default: string }>>
   "thailand_chula_verified_resources.csv": () => import("@/data/thailand_chula_verified_resources.csv?raw"),
   "thailand_icpc_2024_solutions_verified_resources.csv": () => import("@/data/thailand_icpc_2024_solutions_verified_resources.csv?raw"),
   "thailand_icpc_bangkok2025_verified_resources.csv": () => import("@/data/thailand_icpc_bangkok2025_verified_resources.csv?raw"),
+  "thailand_kku_188200_198200_exams_verified_resources.csv": () => import("@/data/thailand_kku_188200_198200_exams_verified_resources.csv?raw"),
   "thailand_kku_2009_homework_verified_resources.csv": () => import("@/data/thailand_kku_2009_homework_verified_resources.csv?raw"),
   "thailand_kku_2010_assessments_verified_resources.csv": () => import("@/data/thailand_kku_2010_assessments_verified_resources.csv?raw"),
   "thailand_kku_2010_quizzes_verified_resources.csv": () => import("@/data/thailand_kku_2010_quizzes_verified_resources.csv?raw"),
@@ -1598,9 +1648,11 @@ export const csvChunkLoaders: Record<string, () => Promise<{ default: string }>>
   "trinidad_and_tobago_expansion_verified_resources.csv": () => import("@/data/trinidad_and_tobago_expansion_verified_resources.csv?raw"),
   "tunisia_expansion_verified_resources.csv": () => import("@/data/tunisia_expansion_verified_resources.csv?raw"),
   "turkiye_expansion_verified_resources.csv": () => import("@/data/turkiye_expansion_verified_resources.csv?raw"),
+  "turkiye_tranche_metu_verified_resources.csv": () => import("@/data/turkiye_tranche_metu_verified_resources.csv?raw"),
   "turkiye_tubitak_verified_resources.csv": () => import("@/data/turkiye_tubitak_verified_resources.csv?raw"),
   "uganda_uneb_verified_resources.csv": () => import("@/data/uganda_uneb_verified_resources.csv?raw"),
   "ukraine_expansion_verified_resources.csv": () => import("@/data/ukraine_expansion_verified_resources.csv?raw"),
+  "ukraine_tranche_nwerc_verified_resources.csv": () => import("@/data/ukraine_tranche_nwerc_verified_resources.csv?raw"),
   "united_arab_emirates_expansion_verified_resources.csv": () => import("@/data/united_arab_emirates_expansion_verified_resources.csv?raw"),
   "united_kingdom_bmo_verified_resources.csv": () => import("@/data/united_kingdom_bmo_verified_resources.csv?raw"),
   "united_kingdom_telegram_intake_verified_resources.csv": () => import("@/data/united_kingdom_telegram_intake_verified_resources.csv?raw"),
@@ -1623,15 +1675,15 @@ export const coreChunkNames = [
 ] as const;
 
 export const catalogIndexTotals = {
-  "catalogCount": 3586,
-  "freeCount": 3586,
-  "sourceCount": 412,
+  "catalogCount": 4635,
+  "freeCount": 4635,
+  "sourceCount": 478,
   "gatewayCount": 50,
   "trackCounts": {
-    "GA": 1902,
-    "EM": 1749,
-    "DM": 1451,
-    "CS": 336,
+    "GA": 2117,
+    "EM": 2431,
+    "DM": 1690,
+    "CS": 364,
     "S": 0,
     "T": 0,
     "E": 0,
